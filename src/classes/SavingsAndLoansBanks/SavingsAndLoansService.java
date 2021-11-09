@@ -1,18 +1,18 @@
-package Classes.SavingsAndLoansBanks;
+package classes.SavingsAndLoansBanks;
 
-import Classes.CentralBank;
+import classes.CentralBank;
 
-public class SavingsAndLoansBank extends CentralBank {
+public class SavingsAndLoansService extends CentralBank {
 
     private double loan;
     private double savingsAccount;
 
-    public SavingsAndLoansBank() {
+    public SavingsAndLoansService() {
         super();
     }
 
-    public SavingsAndLoansBank(int idAccount, double maxCredit, int maxDues, String name, double loan, double savingsAccount) {
-        super(idAccount, maxCredit, maxDues, name);
+    public SavingsAndLoansService(int idAccount, String name, double maxCredit, double loan, double savingsAccount) {
+        super(idAccount, name, maxCredit);
         this.loan = loan;
         this.savingsAccount = savingsAccount;
     }
@@ -30,12 +30,13 @@ public class SavingsAndLoansBank extends CentralBank {
     }
 
     public void setSavingsAccount(double savingsAccount) {
-        this.savingsAccount = savingsAccount;
+        this.savingsAccount = this.loan + this.getSavingsAccount() + savingsAccount;
     }
 
-    @Override
-    public void askForALoan() {
 
+    @Override
+    public boolean giveLoan(double loan) {
+        return super.giveLoan(loan);
     }
 
     @Override

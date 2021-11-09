@@ -1,7 +1,7 @@
-package Classes.InvestmentBanks;
+package classes.investmentBanks;
 
 
-import Classes.CentralBank;
+import classes.CentralBank;
 
 public class BrokerageFirms extends CentralBank {
     private double investmentAccount;
@@ -12,8 +12,8 @@ public class BrokerageFirms extends CentralBank {
         super();
     }
 
-    public BrokerageFirms(int idAccount, double maxCredit, int maxDues, String name, double investmentAccount, String investments) {
-        super(idAccount, maxCredit, maxDues, name);
+    public BrokerageFirms(int idAccount, String name, double maxCredit, double investmentAccount, String investments) {
+        super(idAccount, name, maxCredit);
         this.investmentAccount = investmentAccount;
         this.investments = investments;
     }
@@ -32,12 +32,6 @@ public class BrokerageFirms extends CentralBank {
 
     public void setInvestments(String investments) {
         this.investments = investments;
-    }
-
-
-    @Override
-    public void askForALoan() {
-
     }
 
     @Override

@@ -1,6 +1,11 @@
-package Classes.CommercialBanks;
+package classes.commercialBanks;
+
+import classes.customers.Customer;
+import classes.customers.Person;
+import classes.employees.Employee;
 
 import java.time.LocalDate;
+import java.util.List;
 
 public class CreditCard extends CommercialBank {
 
@@ -54,7 +59,11 @@ public class CreditCard extends CommercialBank {
 
     @Override
     public String toString() {
-        return "CreditCard {" + "commercialBank= " + commercialBank.getName() + ", idCard=" + idCard + ", expireDate=" + expireDate
-                + ", securityCode= " + securityCode + '}';
+        return "CreditCard{" +
+                "commercialBank=" + commercialBank +
+                ", idCard=" + idCard +
+                ", expireDate=" + expireDate +
+                ", securityCode=" + securityCode +
+                '}';
     }
 }

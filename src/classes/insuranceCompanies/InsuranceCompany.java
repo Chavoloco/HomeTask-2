@@ -1,6 +1,9 @@
-package Classes.InsuranceCompanies;
+package classes.insuranceCompanies;
 
-import Classes.CentralBank;
+import classes.CentralBank;
+import classes.customers.Customer;
+import classes.customers.Person;
+import classes.employees.Employee;
 
 public class InsuranceCompany extends CentralBank {
 
@@ -8,9 +11,8 @@ public class InsuranceCompany extends CentralBank {
     private double carQuotation;
     private double houseQuotation;
 
-    public InsuranceCompany(int idAccount, double maxCredit, int maxDues, String name, double carQuotation, double houseQuotation) {
-        super(idAccount, maxCredit, maxDues, name);
-        this.totalQuotation += this.carQuotation + this.houseQuotation;
+    public InsuranceCompany(int idAccount, String name, double maxCredit,  double carQuotation, double houseQuotation) {
+        super(idAccount, name, maxCredit);
         this.carQuotation = carQuotation;
         this.houseQuotation = houseQuotation;
     }
@@ -41,11 +43,6 @@ public class InsuranceCompany extends CentralBank {
 
     public void setHouseQuotation(double houseQuotation) {
         this.houseQuotation = houseQuotation;
-    }
-
-    @Override
-    public void askForALoan() {
-
     }
 
     @Override

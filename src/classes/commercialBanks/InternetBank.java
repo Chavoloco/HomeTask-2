@@ -1,14 +1,14 @@
-package Classes.CommercialBanks;
+package classes.commercialBanks;
 
-import Classes.CentralBank;
+import classes.CentralBank;
 
 public class InternetBank extends CentralBank {
 
     private String url;
     private double savingsAccount;
 
-    public InternetBank(int idAccount, double maxCredit, int maxDues, String name, String url, double savingsAccount) {
-        super(idAccount, maxCredit, maxDues, name);
+    public InternetBank(int idAccount, String name, double maxCredit, String url, double savingsAccount) {
+        super(idAccount, name, maxCredit);
         this.url = url;
         this.savingsAccount = savingsAccount;
     }
@@ -33,10 +33,6 @@ public class InternetBank extends CentralBank {
         this.savingsAccount = savingsAccount;
     }
 
-    @Override
-    public void askForALoan() {
-
-    }
 
     @Override
     public String toString() {
