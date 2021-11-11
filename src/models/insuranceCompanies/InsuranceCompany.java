@@ -1,9 +1,6 @@
-package classes.insuranceCompanies;
+package models.insuranceCompanies;
 
-import classes.CentralBank;
-import classes.customers.Customer;
-import classes.customers.Person;
-import classes.employees.Employee;
+import models.CentralBank;
 
 public class InsuranceCompany extends CentralBank {
 
@@ -43,6 +40,26 @@ public class InsuranceCompany extends CentralBank {
 
     public void setHouseQuotation(double houseQuotation) {
         this.houseQuotation = houseQuotation;
+    }
+
+    @Override
+    public double applyTax(double loan) {
+        return super.applyTax(loan);
+    }
+
+    @Override
+    public String talk() {
+        return "We are evaluating the situation";
+    }
+
+    @Override
+    public int hashCode() {
+        return super.hashCode();
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        return super.equals(obj);
     }
 
     @Override

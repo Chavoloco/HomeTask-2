@@ -1,7 +1,9 @@
-package classes.customers;
+package models.customers;
 
 
-public abstract class Person {
+import models.interfaces.ITalk;
+
+public abstract class Person implements ITalk {
     private String name;
     private int id;
 
@@ -27,6 +29,21 @@ public abstract class Person {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    @Override
+    public int hashCode() {
+        return super.hashCode();
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        return super.equals(obj);
+    }
+
+    @Override
+    public String talk() {
+        return null;
     }
 
     @Override

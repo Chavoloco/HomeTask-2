@@ -1,18 +1,18 @@
 package main;
 
-import classes.CentralBank;
-import classes.SavingsAndLoansBanks.SavingsAndLoansService;
-import classes.commercialBanks.CommercialBank;
-import classes.commercialBanks.CreditCard;
-import classes.commercialBanks.InternetBank;
-import classes.creditUnions.CreditUnion;
-import classes.customers.Customer;
-import classes.customers.Enterprise;
-import classes.customers.Person;
-import classes.employees.Employee;
-import classes.insuranceCompanies.InsuranceCompany;
-import classes.investmentBanks.BrokerageFirms;
-import classes.investmentBanks.InvestmentService;
+import models.CentralBank;
+import models.SavingsAndLoansBanks.SavingsAndLoansService;
+import models.commercialBanks.CommercialBank;
+import models.commercialBanks.CreditCard;
+import models.commercialBanks.InternetBank;
+import models.creditUnions.CreditUnion;
+import models.customers.Customer;
+import models.customers.Enterprise;
+import models.customers.Person;
+import models.employees.Employee;
+import models.insuranceCompanies.InsuranceCompany;
+import models.investmentBanks.BrokerageFirms;
+import models.investmentBanks.InvestmentService;
 
 import java.time.LocalDate;
 import java.time.Month;
@@ -39,21 +39,21 @@ public class Main {
 
 
         System.out.println(
-                insuranceCompany.toString() + "\n" +
-                        investmentBank.toString() + "\n" +
-                        savingsAndLoansService.toString() + "\n" +
-                        internetBank.toString() + "\n" +
-                        brokerageFirms.toString() + "\n" +
-                        commercialBank.toString() + "\n" +
-                        creditCard.toString() + "\n" +
-                        creditUnion.toString() + "\n");
+                insuranceCompany + "\n" +
+                        investmentBank + "\n" +
+                        savingsAndLoansService + "\n" +
+                        internetBank + "\n" +
+                        brokerageFirms + "\n" +
+                        commercialBank + "\n" +
+                        creditCard + "\n" +
+                        creditUnion + "\n");
         //"//***************************************************************************\\" );
-        System.out.println(javier.toString() + "\n" + sancor.toString() + "\n" + leandro.toString());
+        System.out.println(javier + "\n" + sancor + "\n" + leandro);
 
-        askForALoan(commercialBank, savingsAndLoansService);
+        askForALoan(commercialBank, savingsAndLoansService, leandro, javier, sancor);
 
     }
-    public static void askForALoan (CentralBank commercialBank, CentralBank savingsAndLoansService) {
+    public static void askForALoan (CentralBank commercialBank, CentralBank savingsAndLoansService,Person employee, Person customer, Person enterprise) {
         System.out.println("welcome, please select where do you are asking for a loan");
         String op;
         do {
@@ -67,10 +67,18 @@ public class Main {
                 case 1:
                     System.out.println("okay!, Please type how much do you need");
                     String amount = in.nextLine();
+                    System.out.println(customer.talk());
+                    System.out.println(employee.talk());
+                    System.out.println(commercialBank.talk());
                     if (commercialBank.giveLoan(Double.parseDouble(amount))) {
                         ((CommercialBank) commercialBank).setSavingsAccount(Double.parseDouble(amount));
+                        commercialBank.validate();
                         System.out.println("congrats you have $" + ((CommercialBank) commercialBank).getSavingsAccount() + " in your account");
+                        LocalDate now = LocalDate.now();
+                        LocalDate giveBack = now.plusMonths(3);
+                        System.out.println("You must give back $" + commercialBank.applyTax(Double.parseDouble(amount)) + "in " + giveBack);
                     } else {
+                        commercialBank.deny();
                         System.out.println("Sorry we couldn't give you a loan");
                         System.out.println("do you want to put some objects in your security box?");
                         String answer = in.nextLine();
@@ -101,10 +109,18 @@ public class Main {
                 case 2:
                     System.out.println("okay!, Please type how much do you need");
                     amount = in.nextLine();
+                    System.out.println(customer.talk());
+                    System.out.println(employee.talk());
+                    System.out.println(savingsAndLoansService.talk());
                     if (savingsAndLoansService.giveLoan(Double.parseDouble(amount))) {
                         ((SavingsAndLoansService) savingsAndLoansService).setSavingsAccount(Double.parseDouble(amount));
+                        savingsAndLoansService.validate();
                         System.out.println("congrats you have $" + ((SavingsAndLoansService) savingsAndLoansService).getSavingsAccount() + " in your account");
+                        LocalDate now = LocalDate.now();
+                        LocalDate giveBack = now.plusMonths(3);
+                        System.out.println("You must give back $" + savingsAndLoansService.applyTax(Double.parseDouble(amount)) + "in " + giveBack);
                     } else {
+                        savingsAndLoansService.deny();
                         System.out.println("Sorry we couldn't give you a loan");
                     }
                     break;

@@ -1,6 +1,6 @@
-package classes.commercialBanks;
+package models.commercialBanks;
 
-import classes.CentralBank;
+import models.CentralBank;
 
 public class InternetBank extends CentralBank {
 
@@ -33,6 +33,25 @@ public class InternetBank extends CentralBank {
         this.savingsAccount = savingsAccount;
     }
 
+    @Override
+    public double applyTax(double loan) {
+        return super.applyTax(loan);
+    }
+
+    @Override
+    public String talk() {
+        return "We are evaluating the situation";
+    }
+
+    @Override
+    public int hashCode() {
+        return super.hashCode();
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        return super.equals(obj);
+    }
 
     @Override
     public String toString() {

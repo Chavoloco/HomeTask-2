@@ -1,6 +1,6 @@
-package classes.SavingsAndLoansBanks;
+package models.SavingsAndLoansBanks;
 
-import classes.CentralBank;
+import models.CentralBank;
 
 public class SavingsAndLoansService extends CentralBank {
 
@@ -37,6 +37,26 @@ public class SavingsAndLoansService extends CentralBank {
     @Override
     public boolean giveLoan(double loan) {
         return super.giveLoan(loan);
+    }
+
+    @Override
+    public double applyTax(double loan) {
+        return super.applyTax(loan);
+    }
+
+    @Override
+    public String talk() {
+        return "We are evaluating the situation";
+    }
+
+    @Override
+    public int hashCode() {
+        return super.hashCode();
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        return super.equals(obj);
     }
 
     @Override

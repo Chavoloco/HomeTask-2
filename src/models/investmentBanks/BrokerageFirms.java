@@ -1,7 +1,7 @@
-package classes.investmentBanks;
+package models.investmentBanks;
 
 
-import classes.CentralBank;
+import models.CentralBank;
 
 public class BrokerageFirms extends CentralBank {
     private double investmentAccount;
@@ -32,6 +32,26 @@ public class BrokerageFirms extends CentralBank {
 
     public void setInvestments(String investments) {
         this.investments = investments;
+    }
+
+    @Override
+    public double applyTax(double loan) {
+        return super.applyTax(loan);
+    }
+
+    @Override
+    public String talk() {
+        return "We are evaluating the situation";
+    }
+
+    @Override
+    public int hashCode() {
+        return super.hashCode();
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        return super.equals(obj);
     }
 
     @Override

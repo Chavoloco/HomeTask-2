@@ -1,6 +1,6 @@
-package classes.employees;
+package models.employees;
 
-import classes.customers.Person;
+import models.customers.Person;
 
 public class Employee extends Person {
     private String Role;
@@ -19,6 +19,21 @@ public class Employee extends Person {
 
     public void setRole(String role) {
         Role = role;
+    }
+
+    @Override
+    public String talk() {
+        return "Thanks for Apply, we are giving you an answer in minutes";
+    }
+
+    @Override
+    public int hashCode() {
+        return super.hashCode();
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        return super.equals(obj);
     }
 
     @Override

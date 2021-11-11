@@ -1,13 +1,6 @@
-package classes.creditUnions;
+package models.creditUnions;
 
-import classes.CentralBank;
-import classes.customers.Customer;
-import classes.customers.Person;
-import classes.employees.Employee;
-
-import java.time.LocalDate;
-import java.time.Period;
-import java.util.Scanner;
+import models.CentralBank;
 
 public class CreditUnion extends CentralBank {
 
@@ -33,6 +26,21 @@ public class CreditUnion extends CentralBank {
     @Override
     public boolean giveLoan(double loan) {
         return super.giveLoan(loan);
+    }
+
+    @Override
+    public String talk() {
+        return "We are evaluating the situation";
+    }
+
+    @Override
+    public int hashCode() {
+        return super.hashCode();
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        return super.equals(obj);
     }
 
     @Override

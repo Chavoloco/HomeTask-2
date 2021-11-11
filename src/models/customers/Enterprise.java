@@ -1,6 +1,6 @@
-package classes.customers;
+package models.customers;
 
-public class Enterprise extends Person {
+public class Enterprise extends Person  {
     private int enterpriseSize;
 
     public Enterprise() {
@@ -18,6 +18,21 @@ public class Enterprise extends Person {
 
     public void setEnterpriseSize(int enterpriseSize) {
         this.enterpriseSize = enterpriseSize;
+    }
+
+    @Override
+    public int hashCode() {
+        return super.hashCode();
+    }
+
+    @Override
+    public String talk() {
+        return "You must give me a loan";
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        return super.equals(obj);
     }
 
     @Override

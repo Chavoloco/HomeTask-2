@@ -1,14 +1,8 @@
-package classes.commercialBanks;
+package models.commercialBanks;
 
-import classes.CentralBank;
-import classes.customers.Customer;
-import classes.customers.Person;
-import classes.employees.Employee;
+import models.CentralBank;
 
-import java.time.LocalDate;
-import java.time.Period;
 import java.util.List;
-import java.util.Scanner;
 
 public class CommercialBank extends CentralBank {
 
@@ -55,6 +49,26 @@ public class CommercialBank extends CentralBank {
     @Override
     public boolean giveLoan(double loan) {
         return super.giveLoan(loan);
+    }
+
+    @Override
+    public String talk() {
+        return "We are evaluating the situation";
+    }
+
+    @Override
+    public int hashCode() {
+        return super.hashCode();
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        return super.equals(obj);
+    }
+
+    @Override
+    public double applyTax(double loan) {
+        return super.applyTax(loan);
     }
 
     @Override

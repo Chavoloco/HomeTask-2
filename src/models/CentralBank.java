@@ -1,6 +1,11 @@
-package classes;
+package models;
 
-public abstract class CentralBank {
+import models.interfaces.IDeny;
+import models.interfaces.ITalk;
+import models.interfaces.ITaxes;
+import models.interfaces.IValidate;
+
+public abstract class CentralBank implements ITaxes, ITalk, IValidate, IDeny {
 
     private int idAccount;
     private String name;
@@ -45,6 +50,36 @@ public abstract class CentralBank {
             return true;
         }
         return false;
+    }
+
+    @Override
+    public double applyTax(double loan) {
+        return loan += loan * TAX;
+    }
+
+    @Override
+    public String talk() {
+        return null;
+    }
+
+    @Override
+    public void validate() {
+        System.out.println("Your loan has been approved");
+    }
+
+    @Override
+    public void deny() {
+        System.out.println("The loan has not been approved");
+    }
+
+    @Override
+    public int hashCode() {
+        return super.hashCode();
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        return super.equals(obj);
     }
 
     @Override

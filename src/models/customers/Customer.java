@@ -1,4 +1,4 @@
-package classes.customers;
+package models.customers;
 
 public class Customer extends Person {
     private String occupation;
@@ -47,6 +47,21 @@ public class Customer extends Person {
 
     public void setHasYatch(boolean hasYatch) {
         this.hasYatch = hasYatch;
+    }
+
+    @Override
+    public String talk() {
+        return "I hope you gave me the loan";
+    }
+
+    @Override
+    public int hashCode() {
+        return super.hashCode();
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        return super.equals(obj);
     }
 
     @Override

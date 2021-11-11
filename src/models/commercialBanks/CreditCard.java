@@ -1,11 +1,6 @@
-package classes.commercialBanks;
-
-import classes.customers.Customer;
-import classes.customers.Person;
-import classes.employees.Employee;
+package models.commercialBanks;
 
 import java.time.LocalDate;
-import java.util.List;
 
 public class CreditCard extends CommercialBank {
 
@@ -55,6 +50,16 @@ public class CreditCard extends CommercialBank {
 
     public void setCommercialBank(CommercialBank commercialBank) {
         this.commercialBank = commercialBank;
+    }
+
+    @Override
+    public int hashCode() {
+        return super.hashCode();
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        return super.equals(obj);
     }
 
     @Override

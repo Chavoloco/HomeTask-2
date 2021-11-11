@@ -1,13 +1,6 @@
-package classes.investmentBanks;
+package models.investmentBanks;
 
-import classes.CentralBank;
-import classes.customers.Customer;
-import classes.customers.Person;
-import classes.employees.Employee;
-
-import java.time.LocalDate;
-import java.time.Period;
-import java.util.Scanner;
+import models.CentralBank;
 
 public class InvestmentService extends CentralBank {
     private double mutualFunds;
@@ -37,6 +30,26 @@ public class InvestmentService extends CentralBank {
 
     public void setFixedTerms(double fixedTerms) {
         this.fixedTerms = fixedTerms;
+    }
+
+    @Override
+    public double applyTax(double loan) {
+        return super.applyTax(loan);
+    }
+
+    @Override
+    public String talk() {
+        return "We are evaluating the situation";
+    }
+
+    @Override
+    public int hashCode() {
+        return super.hashCode();
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        return super.equals(obj);
     }
 
     @Override
