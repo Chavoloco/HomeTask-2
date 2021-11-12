@@ -1,5 +1,7 @@
 package main;
 
+import exceptions.ClassDoesNotExistException;
+import exceptions.IsNotANumberException;
 import models.CentralBank;
 import models.SavingsAndLoansBanks.SavingsAndLoansService;
 import models.commercialBanks.CommercialBank;
@@ -37,7 +39,6 @@ public class Main {
         Person sancor = new Enterprise("Sancor S.A", 555211544, 2000);
         Person leandro = new Customer("Leandro", 39448090, "Tambourine", false, true, false);
 
-
         System.out.println(
                 insuranceCompany + "\n" +
                         investmentBank + "\n" +
@@ -50,10 +51,14 @@ public class Main {
         //"//***************************************************************************\\" );
         System.out.println(javier + "\n" + sancor + "\n" + leandro);
 
-        askForALoan(commercialBank, savingsAndLoansService, leandro, javier, sancor);
+        try {
+            askForALoan(commercialBank, savingsAndLoansService, javier, leandro);
+        } catch (IsNotANumberException e) {
+        }
 
     }
-    public static void askForALoan (CentralBank commercialBank, CentralBank savingsAndLoansService,Person employee, Person customer, Person enterprise) {
+
+    public static void askForALoan(CentralBank commercialBank, CentralBank savingsAndLoansService, Person employee, Person customer) throws IsNotANumberException {
         System.out.println("welcome, please select where do you are asking for a loan");
         String op;
         do {
@@ -66,7 +71,10 @@ public class Main {
             switch (Integer.parseInt(op)) {
                 case 1:
                     System.out.println("okay!, Please type how much do you need");
-                    String amount = in.nextLine();
+                    String amount = "";
+
+                    amount = in.nextLine();
+
                     System.out.println(customer.talk());
                     System.out.println(employee.talk());
                     System.out.println(commercialBank.talk());
@@ -77,11 +85,13 @@ public class Main {
                         LocalDate now = LocalDate.now();
                         LocalDate giveBack = now.plusMonths(3);
                         System.out.println("You must give back $" + commercialBank.applyTax(Double.parseDouble(amount)) + "in " + giveBack);
+                        throw new IsNotANumberException("What did you type?");
                     } else {
                         commercialBank.deny();
                         System.out.println("Sorry we couldn't give you a loan");
                         System.out.println("do you want to put some objects in your security box?");
-                        String answer = in.nextLine();
+                        String answer;
+                        answer = in.nextLine();
                         if (answer.equals("yes")) {
                             String op1;
                             do {
@@ -106,19 +116,20 @@ public class Main {
                         }
                     }
                     break;
+
                 case 2:
                     System.out.println("okay!, Please type how much do you need");
-                    amount = in.nextLine();
+                    String amount1 = in.nextLine();
                     System.out.println(customer.talk());
                     System.out.println(employee.talk());
                     System.out.println(savingsAndLoansService.talk());
-                    if (savingsAndLoansService.giveLoan(Double.parseDouble(amount))) {
-                        ((SavingsAndLoansService) savingsAndLoansService).setSavingsAccount(Double.parseDouble(amount));
+                    if (savingsAndLoansService.giveLoan(Double.parseDouble(amount1))) {
+                        ((SavingsAndLoansService) savingsAndLoansService).setSavingsAccount(Double.parseDouble(amount1));
                         savingsAndLoansService.validate();
                         System.out.println("congrats you have $" + ((SavingsAndLoansService) savingsAndLoansService).getSavingsAccount() + " in your account");
                         LocalDate now = LocalDate.now();
                         LocalDate giveBack = now.plusMonths(3);
-                        System.out.println("You must give back $" + savingsAndLoansService.applyTax(Double.parseDouble(amount)) + "in " + giveBack);
+                        System.out.println("You must give back $" + savingsAndLoansService.applyTax(Double.parseDouble(amount1)) + "in " + giveBack);
                     } else {
                         savingsAndLoansService.deny();
                         System.out.println("Sorry we couldn't give you a loan");
@@ -132,6 +143,7 @@ public class Main {
                     break;
 
             }
+
 
         } while (Integer.parseInt(op) != 0);
     }
