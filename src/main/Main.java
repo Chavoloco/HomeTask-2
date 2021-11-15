@@ -1,7 +1,8 @@
 package main;
 
-import exceptions.ClassDoesNotExistException;
+import exceptions.IllegalObjectsInSecurityBox;
 import exceptions.IsNotANumberException;
+import exceptions.LowLoanException;
 import models.CentralBank;
 import models.SavingsAndLoansBanks.SavingsAndLoansService;
 import models.commercialBanks.CommercialBank;
@@ -19,9 +20,13 @@ import models.investmentBanks.InvestmentService;
 import java.time.LocalDate;
 import java.time.Month;
 import java.util.*;
+import java.util.logging.LogManager;
+import java.util.logging.Logger;
 
 public class Main {
-    public static void main(String[] args) {
+    private static final Logger log = LogManager.getLogManager().getLogger(String.valueOf(Main.class));
+
+    public static void main(String[] args) throws LowLoanException, IllegalObjectsInSecurityBox {
 
         ArrayList<String> objects = new ArrayList<String>();
         LocalDate expireDate = LocalDate.of(2025, Month.MAY, 23);
@@ -54,11 +59,18 @@ public class Main {
         try {
             askForALoan(commercialBank, savingsAndLoansService, javier, leandro);
         } catch (IsNotANumberException e) {
+            throw new IsNotANumberException("What did you type?");
+        }catch (LowLoanException e){
+            throw new LowLoanException("The minimum loan is $600");
+        }catch (IllegalObjectsInSecurityBox e){
+            throw  new IllegalObjectsInSecurityBox("That object is not allowed");
         }
+
 
     }
 
-    public static void askForALoan(CentralBank commercialBank, CentralBank savingsAndLoansService, Person employee, Person customer) throws IsNotANumberException {
+    public static void askForALoan(CentralBank commercialBank,
+                                   CentralBank savingsAndLoansService, Person employee, Person customer) throws IsNotANumberException, LowLoanException, IllegalObjectsInSecurityBox {
         System.out.println("welcome, please select where do you are asking for a loan");
         String op;
         do {
@@ -72,9 +84,14 @@ public class Main {
                 case 1:
                     System.out.println("okay!, Please type how much do you need");
                     String amount = "";
-
                     amount = in.nextLine();
-
+                    boolean isNumeric = amount.matches("[+-]?\\d*(\\.\\d+)?");
+                    if (!isNumeric) {
+                        throw new IsNotANumberException("What did you type?");
+                    }
+                    if (Double.parseDouble(amount) <= 600){
+                        throw new LowLoanException("The minimum loan is $600");
+                    }
                     System.out.println(customer.talk());
                     System.out.println(employee.talk());
                     System.out.println(commercialBank.talk());
@@ -85,24 +102,28 @@ public class Main {
                         LocalDate now = LocalDate.now();
                         LocalDate giveBack = now.plusMonths(3);
                         System.out.println("You must give back $" + commercialBank.applyTax(Double.parseDouble(amount)) + "in " + giveBack);
-                        throw new IsNotANumberException("What did you type?");
                     } else {
                         commercialBank.deny();
                         System.out.println("Sorry we couldn't give you a loan");
                         System.out.println("do you want to put some objects in your security box?");
-                        String answer;
-                        answer = in.nextLine();
+                        String answer = in.nextLine();
                         if (answer.equals("yes")) {
-                            String op1;
+                            int op1;
                             do {
-                                op1 = in.nextLine();
+                                op1 = in.nextInt();
                                 System.out.println("type 1 if you want to put an object");
                                 System.out.println("type 0 if you want to quit");
-                                switch (Integer.parseInt(op1)) {
+                                String object = "";
+                                switch (op1) {
                                     case 1:
                                         System.out.println("What do you want to put?");
-                                        String object = in.nextLine();
-                                        ((CommercialBank) commercialBank).setSecurityBox(object);
+                                         object = in.nextLine();
+                                        if (object.equals("gun") || object.equals("drug") || object.equals("another security box")){
+                                            throw new IllegalObjectsInSecurityBox("That object is not allowed");
+                                        }else{
+                                            ((CommercialBank) commercialBank).setSecurityBox(object);
+                                            System.out.println("Thanks you have " + ((CommercialBank) commercialBank).getSecurityBox() + " in your security box");
+                                        }
                                         break;
                                     case 0:
                                         System.out.println("Thank you for choosing us!!");
@@ -112,7 +133,7 @@ public class Main {
                                         break;
                                 }
 
-                            } while (Integer.parseInt(op1) != 0);
+                            } while (op1 != 0);
                         }
                     }
                     break;
@@ -120,6 +141,13 @@ public class Main {
                 case 2:
                     System.out.println("okay!, Please type how much do you need");
                     String amount1 = in.nextLine();
+                    isNumeric = amount1.matches("[+-]?\\d*(\\.\\d+)?");
+                    if (!isNumeric) {
+                        throw new IsNotANumberException();
+                    }
+                    if (Double.parseDouble(amount1) <= 0){
+                        throw new LowLoanException();
+                    }
                     System.out.println(customer.talk());
                     System.out.println(employee.talk());
                     System.out.println(savingsAndLoansService.talk());
