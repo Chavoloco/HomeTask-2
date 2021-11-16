@@ -1,5 +1,6 @@
 package com.solvd.financial_intitution;
 
+import com.solvd.financial_intitution.collections.MyLinkedList;
 import com.solvd.financial_intitution.exceptions.*;
 import com.solvd.financial_intitution.models.CentralBank;
 import com.solvd.financial_intitution.models.savingsAndLoansBanks.SavingsAndLoansService;
@@ -19,9 +20,16 @@ import java.time.Month;
 import java.util.*;
 
 public class Main {
-    private static final Logger log = LogManager.getLogger(Main.class);
+    public static MyLinkedList myLinkedList;
 
     public static void main(String[] args) {
+
+        myLinkedList = new MyLinkedList();
+
+        myLinkedList.add("1");
+        myLinkedList.add("4");
+
+        System.out.println("linked list: " + myLinkedList);
 
         ArrayList<String> objects = new ArrayList<String>();
         LocalDate expireDate = LocalDate.of(2025, Month.MAY, 23);
@@ -49,13 +57,13 @@ public class Main {
         try {
             askForALoan(commercialBank, savingsAndLoansService, javier, leandro);
         } catch (IsNotANumberException e) {
-            log.info("you must put an number in this field, please be careful");
+            //log.info("you must put an number in this field, please be careful");
             throw new IsNotANumberException("What did you type?");
         } catch (LowLoanException e) {
-            log.info("we can't give you a loan under $600");
+            //log.info("we can't give you a loan under $600");
             throw new LowLoanException("The minimum loan is $600");
         } catch (IllegalObjectsInSecurityBox e) {
-            log.info("Sorry we cannot allow those objects, you can go to jail and so am we");
+            //log.info("Sorry we cannot allow those objects, you can go to jail and so am we");
             throw new IllegalObjectsInSecurityBox("That object is not allowed");
         }
 
@@ -63,7 +71,8 @@ public class Main {
 
     public static void askForALoan(CentralBank commercialBank, CentralBank savingsAndLoansService, Person employee,
             Person customer) {
-        log.info("welcome, please select where do you are asking for a loan");
+        //log.info("welcome, please select where do you are asking for a loan");
+        System.out.println("welcome, please select where do you are asking for a loan");
         String op;
         do {
             op = "";
