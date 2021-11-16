@@ -1,9 +1,9 @@
-package main.java.com.solvd.financial_intitution.models;
+package com.solvd.financial_intitution.models;
 
-import main.java.com.solvd.financial_intitution.models.interfaces.IDeny;
-import main.java.com.solvd.financial_intitution.models.interfaces.ITalk;
-import main.java.com.solvd.financial_intitution.models.interfaces.ITaxes;
-import main.java.com.solvd.financial_intitution.models.interfaces.IValidate;
+import com.solvd.financial_intitution.models.interfaces.IDeny;
+import com.solvd.financial_intitution.models.interfaces.ITalk;
+import com.solvd.financial_intitution.models.interfaces.ITaxes;
+import com.solvd.financial_intitution.models.interfaces.IValidate;
 
 public abstract class CentralBank implements ITaxes, ITalk, IValidate, IDeny {
 

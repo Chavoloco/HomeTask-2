@@ -1,7 +1,7 @@
-package main.java.com.solvd.financial_intitution.models.customers;
+package com.solvd.financial_intitution.models.customers;
 
 
-import main.java.com.solvd.financial_intitution.models.interfaces.ITalk;
+import com.solvd.financial_intitution.models.interfaces.ITalk;
 
 public abstract class Person implements ITalk {
     private String name;

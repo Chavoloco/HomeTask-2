@@ -1,6 +1,6 @@
-package main.java.com.solvd.financial_intitution.models.SavingsAndLoansBanks;
+package com.solvd.financial_intitution.models.SavingsAndLoansBanks;
 
-import main.java.com.solvd.financial_intitution.models.CentralBank;
+import com.solvd.financial_intitution.models.CentralBank;
 
 public class SavingsAndLoansService extends CentralBank {
 

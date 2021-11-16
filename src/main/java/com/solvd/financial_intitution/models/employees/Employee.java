@@ -1,6 +1,6 @@
-package main.java.com.solvd.financial_intitution.models.employees;
+package com.solvd.financial_intitution.models.employees;
 
-import main.java.com.solvd.financial_intitution.models.customers.Person;
+import com.solvd.financial_intitution.models.customers.Person;
 
 public class Employee extends Person {
     private String Role;

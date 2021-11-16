@@ -1,4 +1,4 @@
-package main.java.com.solvd.financial_intitution.models.customers;
+package com.solvd.financial_intitution.models.customers;
 
 public class Customer extends Person {
     private String occupation;

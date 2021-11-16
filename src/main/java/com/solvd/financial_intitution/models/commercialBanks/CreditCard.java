@@ -1,4 +1,4 @@
-package main.java.com.solvd.financial_intitution.models.commercialBanks;
+package com.solvd.financial_intitution.models.commercialBanks;
 
 import java.time.LocalDate;
 

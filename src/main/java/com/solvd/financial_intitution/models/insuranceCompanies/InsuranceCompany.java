@@ -1,6 +1,6 @@
-package main.java.com.solvd.financial_intitution.models.insuranceCompanies;
+package com.solvd.financial_intitution.models.insuranceCompanies;
 
-import main.java.com.solvd.financial_intitution.models.CentralBank;
+import com.solvd.financial_intitution.models.CentralBank;
 
 public class InsuranceCompany extends CentralBank {
 

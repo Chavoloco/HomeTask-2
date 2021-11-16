@@ -1,4 +1,4 @@
-package main.java.com.solvd.financial_intitution.exceptions;
+package com.solvd.financial_intitution.exceptions;
 
 public class IsNotANumberException extends RuntimeException {
 

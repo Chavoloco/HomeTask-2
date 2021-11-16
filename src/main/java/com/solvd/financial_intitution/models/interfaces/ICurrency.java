@@ -1,4 +1,4 @@
-package main.java.com.solvd.financial_intitution.models.interfaces;
+package com.solvd.financial_intitution.models.interfaces;
 
 public interface ICurrency {
     double VALUE_COMPARED_WITH_DOLAR = 0.0100;

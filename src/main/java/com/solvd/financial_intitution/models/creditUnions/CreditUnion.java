@@ -1,6 +1,6 @@
-package main.java.com.solvd.financial_intitution.models.creditUnions;
+package com.solvd.financial_intitution.models.creditUnions;
 
-import main.java.com.solvd.financial_intitution.models.CentralBank;
+import com.solvd.financial_intitution.models.CentralBank;
 
 public class CreditUnion extends CentralBank {
 

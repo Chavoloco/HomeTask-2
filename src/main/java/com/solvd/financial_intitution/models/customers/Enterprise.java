@@ -1,4 +1,4 @@
-package main.java.com.solvd.financial_intitution.models.customers;
+package com.solvd.financial_intitution.models.customers;
 
 public class Enterprise extends Person  {
     private int enterpriseSize;

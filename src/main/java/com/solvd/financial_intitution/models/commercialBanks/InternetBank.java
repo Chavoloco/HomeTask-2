@@ -1,6 +1,6 @@
-package main.java.com.solvd.financial_intitution.models.commercialBanks;
+package com.solvd.financial_intitution.models.commercialBanks;
 
-import main.java.com.solvd.financial_intitution.models.CentralBank;
+import com.solvd.financial_intitution.models.CentralBank;
 
 public class InternetBank extends CentralBank {
 
