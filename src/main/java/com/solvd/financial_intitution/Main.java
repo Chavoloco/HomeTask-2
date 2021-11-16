@@ -26,7 +26,7 @@ import java.util.logging.Logger;
 public class Main {
     private static final Logger log = LogManager.getLogManager().getLogger(String.valueOf(Main.class));
 
-    public static void main(String[] args) throws LowLoanException, IllegalObjectsInSecurityBox {
+    public static void main(String[] args) {
 
         ArrayList<String> objects = new ArrayList<String>();
         LocalDate expireDate = LocalDate.of(2025, Month.MAY, 23);
@@ -70,7 +70,7 @@ public class Main {
     }
 
     public static void askForALoan(CentralBank commercialBank,
-                                   CentralBank savingsAndLoansService, Person employee, Person customer) throws IsNotANumberException, LowLoanException, IllegalObjectsInSecurityBox {
+                                   CentralBank savingsAndLoansService, Person employee, Person customer)  {
         System.out.println("welcome, please select where do you are asking for a loan");
         String op;
         do {
