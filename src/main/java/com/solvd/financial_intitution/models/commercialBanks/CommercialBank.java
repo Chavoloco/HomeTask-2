@@ -1,11 +1,12 @@
 package com.solvd.financial_intitution.models.commercialBanks;
 
 import com.solvd.financial_intitution.models.CentralBank;
+import com.solvd.financial_intitution.models.interfaces.ICurrency;
 
 import java.util.List;
 import java.util.Objects;
 
-public class CommercialBank extends CentralBank {
+public class CommercialBank extends CentralBank implements ICurrency {
 
     private double savingsAccount;
     private int idSecurityBox;
@@ -45,6 +46,16 @@ public class CommercialBank extends CentralBank {
 
     public void setSecurityBox(String object) {
         this.securityBox.add(object);
+    }
+
+    @Override
+    public double exchangeDollar(double currency) {
+        return currency * VALUE_COMPARED_WITH_DOLAR;
+    }
+
+    @Override
+    public double exchangeEuro(double currency) {
+        return currency * VALUE_COMPARED_WITH_EURO;
     }
 
     @Override

@@ -9,12 +9,14 @@ import com.solvd.financial_intitution.models.customers.*;
 import com.solvd.financial_intitution.models.employees.Employee;
 import com.solvd.financial_intitution.models.insuranceCompanies.InsuranceCompany;
 import com.solvd.financial_intitution.models.investmentBanks.*;
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
+//import org.apache.log4j.Logger;
+//import org.apache.logging.log4j.core.LogManager;
 
 import java.time.LocalDate;
 import java.time.Month;
 import java.util.*;
-import org.apache.logging.log4j.Logger;
-import org.apache.logging.log4j.LogManager;
 
 public class Main {
     private static final Logger log = LogManager.getLogger(Main.class);
@@ -42,7 +44,6 @@ public class Main {
                 insuranceCompany + "\n" + investmentBank + "\n" + savingsAndLoansService + "\n" + internetBank + "\n"
                         + brokerageFirms + "\n" + commercialBank + "\n" + creditCard + "\n" + creditUnion + "\n");
         // "//***************************************************************************\\"
-        // );
         System.out.println(javier + "\n" + sancor + "\n" + leandro);
 
         try {
@@ -56,7 +57,6 @@ public class Main {
         } catch (IllegalObjectsInSecurityBox e) {
             log.info("Sorry we cannot allow those objects, you can go to jail and so am we");
             throw new IllegalObjectsInSecurityBox("That object is not allowed");
-
         }
 
     }
