@@ -5,6 +5,8 @@ import com.solvd.financial_intitution.models.interfaces.ITalk;
 import com.solvd.financial_intitution.models.interfaces.ITaxes;
 import com.solvd.financial_intitution.models.interfaces.IValidate;
 
+import java.util.Objects;
+
 public abstract class CentralBank implements ITaxes, ITalk, IValidate, IDeny {
 
     private int idAccount;
@@ -73,13 +75,16 @@ public abstract class CentralBank implements ITaxes, ITalk, IValidate, IDeny {
     }
 
     @Override
-    public int hashCode() {
-        return super.hashCode();
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        CentralBank that = (CentralBank) o;
+        return idAccount == that.idAccount;
     }
 
     @Override
-    public boolean equals(Object obj) {
-        return super.equals(obj);
+    public int hashCode() {
+        return Objects.hash(idAccount);
     }
 
     @Override

@@ -1,5 +1,7 @@
 package com.solvd.financial_intitution.models.customers;
 
+import java.util.Objects;
+
 public class Enterprise extends Person  {
     private int enterpriseSize;
 
@@ -21,18 +23,22 @@ public class Enterprise extends Person  {
     }
 
     @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
+        Enterprise that = (Enterprise) o;
+        return enterpriseSize == that.enterpriseSize;
+    }
+
+    @Override
     public int hashCode() {
-        return super.hashCode();
+        return Objects.hash(super.hashCode(), enterpriseSize);
     }
 
     @Override
     public String talk() {
         return "You must give me a loan";
-    }
-
-    @Override
-    public boolean equals(Object obj) {
-        return super.equals(obj);
     }
 
     @Override

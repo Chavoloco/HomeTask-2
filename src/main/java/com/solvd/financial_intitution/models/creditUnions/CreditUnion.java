@@ -2,6 +2,8 @@ package com.solvd.financial_intitution.models.creditUnions;
 
 import com.solvd.financial_intitution.models.CentralBank;
 
+import java.util.Objects;
+
 public class CreditUnion extends CentralBank {
 
     private double loan;
@@ -34,13 +36,17 @@ public class CreditUnion extends CentralBank {
     }
 
     @Override
-    public int hashCode() {
-        return super.hashCode();
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
+        CreditUnion that = (CreditUnion) o;
+        return Double.compare(that.loan, loan) == 0;
     }
 
     @Override
-    public boolean equals(Object obj) {
-        return super.equals(obj);
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), loan);
     }
 
     @Override

@@ -3,6 +3,7 @@ package com.solvd.financial_intitution.models.commercialBanks;
 import com.solvd.financial_intitution.models.CentralBank;
 
 import java.util.List;
+import java.util.Objects;
 
 public class CommercialBank extends CentralBank {
 
@@ -57,13 +58,17 @@ public class CommercialBank extends CentralBank {
     }
 
     @Override
-    public int hashCode() {
-        return super.hashCode();
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
+        CommercialBank that = (CommercialBank) o;
+        return Double.compare(that.savingsAccount, savingsAccount) == 0 && idSecurityBox == that.idSecurityBox;
     }
 
     @Override
-    public boolean equals(Object obj) {
-        return super.equals(obj);
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), savingsAccount, idSecurityBox);
     }
 
     @Override

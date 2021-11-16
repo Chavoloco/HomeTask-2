@@ -3,6 +3,8 @@ package com.solvd.financial_intitution.models.customers;
 
 import com.solvd.financial_intitution.models.interfaces.ITalk;
 
+import java.util.Objects;
+
 public abstract class Person implements ITalk {
     private String name;
     private int id;
@@ -32,13 +34,16 @@ public abstract class Person implements ITalk {
     }
 
     @Override
-    public int hashCode() {
-        return super.hashCode();
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Person person = (Person) o;
+        return id == person.id;
     }
 
     @Override
-    public boolean equals(Object obj) {
-        return super.equals(obj);
+    public int hashCode() {
+        return Objects.hash(id);
     }
 
     @Override

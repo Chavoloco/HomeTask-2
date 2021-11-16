@@ -1,5 +1,7 @@
 package com.solvd.financial_intitution.models.customers;
 
+import java.util.Objects;
+
 public class Customer extends Person {
     private String occupation;
     private boolean hasCar;
@@ -55,13 +57,17 @@ public class Customer extends Person {
     }
 
     @Override
-    public int hashCode() {
-        return super.hashCode();
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
+        Customer customer = (Customer) o;
+        return Objects.equals(occupation, customer.occupation);
     }
 
     @Override
-    public boolean equals(Object obj) {
-        return super.equals(obj);
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), occupation);
     }
 
     @Override

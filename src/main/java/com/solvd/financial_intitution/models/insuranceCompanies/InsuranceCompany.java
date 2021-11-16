@@ -2,6 +2,8 @@ package com.solvd.financial_intitution.models.insuranceCompanies;
 
 import com.solvd.financial_intitution.models.CentralBank;
 
+import java.util.Objects;
+
 public class InsuranceCompany extends CentralBank {
 
     private double totalQuotation;
@@ -53,13 +55,17 @@ public class InsuranceCompany extends CentralBank {
     }
 
     @Override
-    public int hashCode() {
-        return super.hashCode();
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
+        InsuranceCompany that = (InsuranceCompany) o;
+        return Double.compare(that.totalQuotation, totalQuotation) == 0 && Double.compare(that.carQuotation, carQuotation) == 0 && Double.compare(that.houseQuotation, houseQuotation) == 0;
     }
 
     @Override
-    public boolean equals(Object obj) {
-        return super.equals(obj);
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), totalQuotation, carQuotation, houseQuotation);
     }
 
     @Override

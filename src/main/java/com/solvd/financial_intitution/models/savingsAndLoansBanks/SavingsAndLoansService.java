@@ -1,6 +1,8 @@
-package com.solvd.financial_intitution.models.SavingsAndLoansBanks;
+package com.solvd.financial_intitution.models.savingsAndLoansBanks;
 
 import com.solvd.financial_intitution.models.CentralBank;
+
+import java.util.Objects;
 
 public class SavingsAndLoansService extends CentralBank {
 
@@ -50,13 +52,17 @@ public class SavingsAndLoansService extends CentralBank {
     }
 
     @Override
-    public int hashCode() {
-        return super.hashCode();
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
+        SavingsAndLoansService that = (SavingsAndLoansService) o;
+        return Double.compare(that.savingsAccount, savingsAccount) == 0;
     }
 
     @Override
-    public boolean equals(Object obj) {
-        return super.equals(obj);
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), savingsAccount);
     }
 
     @Override

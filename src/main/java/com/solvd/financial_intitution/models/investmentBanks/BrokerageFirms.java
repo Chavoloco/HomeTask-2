@@ -3,6 +3,8 @@ package com.solvd.financial_intitution.models.investmentBanks;
 
 import com.solvd.financial_intitution.models.CentralBank;
 
+import java.util.Objects;
+
 public class BrokerageFirms extends CentralBank {
     private double investmentAccount;
     private String investments;
@@ -45,13 +47,17 @@ public class BrokerageFirms extends CentralBank {
     }
 
     @Override
-    public int hashCode() {
-        return super.hashCode();
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
+        BrokerageFirms that = (BrokerageFirms) o;
+        return Double.compare(that.investmentAccount, investmentAccount) == 0;
     }
 
     @Override
-    public boolean equals(Object obj) {
-        return super.equals(obj);
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), investmentAccount);
     }
 
     @Override

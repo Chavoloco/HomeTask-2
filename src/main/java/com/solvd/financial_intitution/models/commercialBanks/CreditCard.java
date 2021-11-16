@@ -1,6 +1,7 @@
 package com.solvd.financial_intitution.models.commercialBanks;
 
 import java.time.LocalDate;
+import java.util.Objects;
 
 public class CreditCard extends CommercialBank {
 
@@ -53,13 +54,17 @@ public class CreditCard extends CommercialBank {
     }
 
     @Override
-    public int hashCode() {
-        return super.hashCode();
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
+        CreditCard that = (CreditCard) o;
+        return idCard == that.idCard && securityCode == that.securityCode && commercialBank.equals(that.commercialBank) && expireDate.equals(that.expireDate);
     }
 
     @Override
-    public boolean equals(Object obj) {
-        return super.equals(obj);
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), commercialBank, idCard, expireDate, securityCode);
     }
 
     @Override
