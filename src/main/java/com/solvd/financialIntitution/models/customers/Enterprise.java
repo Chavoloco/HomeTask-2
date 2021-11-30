@@ -2,7 +2,7 @@ package com.solvd.financialIntitution.models.customers;
 
 import java.util.Objects;
 
-public class Enterprise extends Person  {
+public class Enterprise extends Person {
     private int enterpriseSize;
 
     public Enterprise() {
@@ -33,7 +33,7 @@ public class Enterprise extends Person  {
 
     @Override
     public int hashCode() {
-        return Objects.hash(super.hashCode(), enterpriseSize);
+        return Objects.hash(enterpriseSize);
     }
 
     @Override

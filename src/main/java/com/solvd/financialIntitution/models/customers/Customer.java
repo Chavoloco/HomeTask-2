@@ -62,12 +62,12 @@ public class Customer extends Person {
         if (o == null || getClass() != o.getClass()) return false;
         if (!super.equals(o)) return false;
         Customer customer = (Customer) o;
-        return Objects.equals(occupation, customer.occupation);
+        return occupation == customer.occupation && hasCar == customer.hasCar && hasHouse == customer.hasHouse && hasYatch == customer.hasYatch;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(super.hashCode(), occupation);
+        return Objects.hash(occupation, hasCar, hasHouse, hasYatch);
     }
 
     @Override

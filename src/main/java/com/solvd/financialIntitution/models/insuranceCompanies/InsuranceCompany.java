@@ -65,7 +65,7 @@ public class InsuranceCompany extends CentralBank {
 
     @Override
     public int hashCode() {
-        return Objects.hash(super.hashCode(), totalQuotation, carQuotation, houseQuotation);
+        return Objects.hash(totalQuotation, carQuotation, houseQuotation);
     }
 
     @Override

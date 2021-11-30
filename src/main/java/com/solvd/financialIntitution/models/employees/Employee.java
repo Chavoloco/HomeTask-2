@@ -5,22 +5,22 @@ import com.solvd.financialIntitution.models.customers.Person;
 import java.util.Objects;
 
 public class Employee extends Person {
-    private String Role;
+    private String role;
 
     public Employee(String name, int id, String role) {
         super(name, id);
-        Role = role;
+        this.role = role;
     }
 
     public Employee() {
     }
 
     public String getRole() {
-        return Role;
+        return role;
     }
 
     public void setRole(String role) {
-        Role = role;
+        this.role = role;
     }
 
     @Override
@@ -34,18 +34,18 @@ public class Employee extends Person {
         if (o == null || getClass() != o.getClass()) return false;
         if (!super.equals(o)) return false;
         Employee employee = (Employee) o;
-        return Role.equals(employee.Role);
+        return role.equals(employee.role);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(super.hashCode(), Role);
+        return Objects.hash(role);
     }
 
     @Override
     public String toString() {
         return "Employee{" + super.toString() +
-                "Role='" + Role + '\'' +
+                "Role='" + role + '\'' +
                 '}';
     }
 }

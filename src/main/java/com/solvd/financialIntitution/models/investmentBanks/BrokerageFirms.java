@@ -52,12 +52,12 @@ public class BrokerageFirms extends CentralBank {
         if (o == null || getClass() != o.getClass()) return false;
         if (!super.equals(o)) return false;
         BrokerageFirms that = (BrokerageFirms) o;
-        return Double.compare(that.investmentAccount, investmentAccount) == 0;
+        return Double.compare(that.investmentAccount, investmentAccount) == 0 && investments.equals(that.investments);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(super.hashCode(), investmentAccount);
+        return Objects.hash(investments, investmentAccount);
     }
 
     @Override

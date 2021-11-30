@@ -46,7 +46,7 @@ public class CreditUnion extends CentralBank {
 
     @Override
     public int hashCode() {
-        return Objects.hash(super.hashCode(), loan);
+        return Objects.hash(loan);
     }
 
     @Override

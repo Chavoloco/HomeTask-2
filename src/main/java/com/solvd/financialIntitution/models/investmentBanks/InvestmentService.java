@@ -50,12 +50,12 @@ public class InvestmentService extends CentralBank {
         if (o == null || getClass() != o.getClass()) return false;
         if (!super.equals(o)) return false;
         InvestmentService that = (InvestmentService) o;
-        return Double.compare(that.mutualFunds, mutualFunds) == 0;
+        return Double.compare(that.mutualFunds, mutualFunds) == 0 && Double.compare(that.fixedTerms, fixedTerms) == 0;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(super.hashCode(), mutualFunds);
+        return Objects.hash(mutualFunds);
     }
 
     @Override

@@ -57,12 +57,12 @@ public class SavingsAndLoansService extends CentralBank {
         if (o == null || getClass() != o.getClass()) return false;
         if (!super.equals(o)) return false;
         SavingsAndLoansService that = (SavingsAndLoansService) o;
-        return Double.compare(that.savingsAccount, savingsAccount) == 0;
+        return Double.compare(that.savingsAccount, savingsAccount) == 0 && Double.compare(that.loan, loan) == 0;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(super.hashCode(), savingsAccount);
+        return Objects.hash(loan, savingsAccount);
     }
 
     @Override

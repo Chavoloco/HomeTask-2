@@ -74,12 +74,12 @@ public class CommercialBank extends CentralBank implements ICurrency {
         if (o == null || getClass() != o.getClass()) return false;
         if (!super.equals(o)) return false;
         CommercialBank that = (CommercialBank) o;
-        return Double.compare(that.savingsAccount, savingsAccount) == 0 && idSecurityBox == that.idSecurityBox;
+        return Double.compare(that.savingsAccount, savingsAccount) == 0 && idSecurityBox == that.idSecurityBox && securityBox == that.securityBox;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(super.hashCode(), savingsAccount, idSecurityBox);
+        return Objects.hash(securityBox, savingsAccount, idSecurityBox);
     }
 
     @Override

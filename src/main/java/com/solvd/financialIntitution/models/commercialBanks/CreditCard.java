@@ -64,7 +64,7 @@ public class CreditCard extends CommercialBank {
 
     @Override
     public int hashCode() {
-        return Objects.hash(super.hashCode(), commercialBank, idCard, expireDate, securityCode);
+        return Objects.hash(commercialBank, idCard, expireDate, securityCode);
     }
 
     @Override

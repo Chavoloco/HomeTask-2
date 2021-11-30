@@ -38,7 +38,7 @@ public abstract class Person implements ITalk {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Person person = (Person) o;
-        return id == person.id;
+        return id == person.id && name.equals(person.name);
     }
 
     @Override

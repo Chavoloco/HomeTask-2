@@ -51,12 +51,12 @@ public class InternetBank extends CentralBank {
         if (o == null || getClass() != o.getClass()) return false;
         if (!super.equals(o)) return false;
         InternetBank that = (InternetBank) o;
-        return Objects.equals(url, that.url);
+        return url == that.url && savingsAccount == that.savingsAccount;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(super.hashCode(), url);
+        return Objects.hash(savingsAccount, url);
     }
 
     @Override
