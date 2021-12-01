@@ -1,11 +1,14 @@
 package com.solvd.financialIntitution.models;
 
+import com.solvd.financialIntitution.enums.Levels;
 import com.solvd.financialIntitution.models.interfaces.IDeny;
 import com.solvd.financialIntitution.models.interfaces.ITalk;
 import com.solvd.financialIntitution.models.interfaces.ITaxes;
 import com.solvd.financialIntitution.models.interfaces.IValidate;
 
 import java.util.Objects;
+
+
 
 public abstract class CentralBank implements ITaxes, ITalk, IValidate, IDeny {
 
@@ -19,7 +22,19 @@ public abstract class CentralBank implements ITaxes, ITalk, IValidate, IDeny {
     public CentralBank(int idAccount, String name, double maxCredit) {
         this.idAccount = idAccount;
         this.name = name;
-        this.maxCredit = maxCredit;
+        Levels level = Levels.LOW;
+        switch (level) {
+            case LOW:
+                this.maxCredit = maxCredit * 1;
+                break;
+            case HIGH:
+                this.maxCredit = maxCredit * 2;
+                break;
+            case MEDIUM:
+                this.maxCredit = maxCredit * 1.5;
+                break;
+            //this.maxCredit = maxCredit;
+        }
     }
 
     //Getters and Setters
@@ -44,7 +59,19 @@ public abstract class CentralBank implements ITaxes, ITalk, IValidate, IDeny {
     }
 
     public void setMaxCredit(double maxCredit) {
-        this.maxCredit = maxCredit;
+        Levels level = Levels.HIGH;
+        switch (level){
+            case LOW:
+                this.maxCredit = maxCredit * 1;
+                break;
+            case HIGH:
+                this.maxCredit = maxCredit *2;
+                break;
+            case MEDIUM:
+                this.maxCredit = maxCredit *1.5;
+                break;
+        }
+
     }
 
     public boolean giveLoan(double loan) {

@@ -45,6 +45,11 @@ public class InsuranceCompany extends CentralBank {
     }
 
     @Override
+    public void setMaxCredit(double maxCredit) {
+        super.setMaxCredit(maxCredit);
+    }
+
+    @Override
     public double applyTax(double loan) {
         return super.applyTax(loan);
     }
