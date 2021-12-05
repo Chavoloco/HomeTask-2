@@ -5,6 +5,8 @@ import com.solvd.financialIntitution.enums.Days;
 import com.solvd.financialIntitution.enums.LoanStatus;
 import com.solvd.financialIntitution.exceptions.*;
 import com.solvd.financialIntitution.generics.BankDAO;
+import com.solvd.financialIntitution.generics.PersonDAO;
+import com.solvd.financialIntitution.generics.UnionDAO;
 import com.solvd.financialIntitution.models.CentralBank;
 import com.solvd.financialIntitution.models.savingsAndLoansBanks.SavingsAndLoansService;
 import com.solvd.financialIntitution.models.commercialBanks.*;
@@ -13,6 +15,7 @@ import com.solvd.financialIntitution.models.customers.*;
 import com.solvd.financialIntitution.models.employees.Employee;
 import com.solvd.financialIntitution.models.insuranceCompanies.InsuranceCompany;
 import com.solvd.financialIntitution.models.investmentBanks.*;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 
@@ -27,6 +30,7 @@ public class Main {
     public static void main(String[] args) {
 
         myLinkedList = new MyLinkedList();
+
 
         myLinkedList.add("1");
         myLinkedList.add("4");
@@ -56,6 +60,18 @@ public class Main {
         // "//***************************************************************************\\"
         System.out.println(javier + "\n" + sancor + "\n" + leandro);
 
+        BankDAO<CommercialBank> commercialBankGeneric = new BankDAO<>();
+        commercialBankGeneric.editName( (CommercialBank) commercialBank, "Nation Bank");
+        commercialBankGeneric.getName((CommercialBank) commercialBank);
+        commercialBankGeneric.getIdAccount((CommercialBank) commercialBank);
+
+        PersonDAO<Customer> customerPersonGeneric = new PersonDAO<>();
+        customerPersonGeneric.updateName((Customer) leandro, "Leandro Rodolfo");
+        customerPersonGeneric.getName((Customer) leandro);
+
+        UnionDAO<CommercialBank, Customer> unionGeneric = new UnionDAO<>();
+        System.out.println(unionGeneric.makeUnion((CommercialBank) commercialBank,(Customer) leandro));
+
         try {
             askForALoan(commercialBank, savingsAndLoansService, javier, leandro);
         } catch (IsNotANumberException e) {
@@ -74,11 +90,11 @@ public class Main {
 
     public static void askForALoan(CentralBank commercialBank, CentralBank savingsAndLoansService, Person employee, Person customer) {
         Days day = Days.MONDAY;
-        if (day.equals(Days.SATURDAY)  || day.equals(Days.SUNDAY)){
+        if (day.equals(Days.SATURDAY) || day.equals(Days.SUNDAY)) {
             System.out.println("operations are closed");
-        } else if(day.openingTime()< 7.00 || day.closingTime() > 13.30){
+        } else if (day.openingTime() < 7.00 || day.closingTime() > 13.30) {
             System.out.println("operations are closed");
-        }else {
+        } else {
             //log.info("welcome, please select where do you are asking for a loan");
             System.out.println("welcome, please select where do you are asking for a loan");
             String op;
@@ -205,6 +221,6 @@ public class Main {
 
             } while (Integer.parseInt(op) != 0);
         }
-        }
+    }
 
 }
