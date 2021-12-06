@@ -1,5 +1,7 @@
 package com.solvd.financialIntitution.models.customers;
 
+import com.solvd.financialIntitution.enums.Levels;
+
 import java.util.Objects;
 
 public class Customer extends Person {
@@ -7,6 +9,7 @@ public class Customer extends Person {
     private boolean hasCar;
     private boolean hasHouse;
     private boolean hasYatch;
+    private Levels level;
 
     public Customer() {
     }
@@ -17,6 +20,13 @@ public class Customer extends Person {
         this.hasCar = hasCar;
         this.hasHouse = hasHouse;
         this.hasYatch = hasYatch;
+        if (hasCar && hasHouse && hasYatch) {
+            level = Levels.HIGH;
+        } else if (hasCar || hasHouse) {
+            level = Levels.MEDIUM;
+        } else {
+            level = Levels.LOW;
+        }
     }
 
     public String getOccupation() {
@@ -49,6 +59,10 @@ public class Customer extends Person {
 
     public void setHasYatch(boolean hasYatch) {
         this.hasYatch = hasYatch;
+    }
+
+    public Levels getLevel() {
+        return level;
     }
 
     @Override

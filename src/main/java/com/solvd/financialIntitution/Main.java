@@ -2,6 +2,7 @@ package com.solvd.financialIntitution;
 
 import com.solvd.financialIntitution.collections.MyLinkedList;
 import com.solvd.financialIntitution.enums.Days;
+import com.solvd.financialIntitution.enums.Levels;
 import com.solvd.financialIntitution.enums.LoanStatus;
 import com.solvd.financialIntitution.exceptions.*;
 import com.solvd.financialIntitution.generics.BankDAO;
@@ -24,8 +25,6 @@ import org.apache.log4j.Logger;
 import java.io.File;
 import java.io.IOException;
 import java.text.ParseException;
-import java.time.LocalDate;
-import java.time.Month;
 import java.util.*;
 
 public class Main {
@@ -42,14 +41,14 @@ public class Main {
 
         System.out.println("linked list: " + myLinkedList);
 
-        ArrayList<String> objects = new ArrayList<String>();
+        ArrayList<String> objects = new ArrayList<>();
 
         Date expireDate = DateUtils.parseDate("2030/06/13", "yyyy/MM/dd");
 
 
         CentralBank insuranceCompany = new InsuranceCompany(458778, "Security insurance", 45000, 5400.00, 120000.00);
-        CentralBank investmentBank = new InvestmentService(878765, "Brothers investment", 12000, 00, 00);
-        CentralBank savingsAndLoansService = new SavingsAndLoansService(554541, "National Cooperative", 15000.00, 00,
+        CentralBank investmentBank = new InvestmentService(878765, "Brothers investment", 12000, 0, 0);
+        CentralBank savingsAndLoansService = new SavingsAndLoansService(554541, "National Cooperative", 15000.00, 0,
                 0);
         CentralBank internetBank = new InternetBank(4848775, "World Wide Bank", 0, "www.publicurl.com", 2500.00);
         CentralBank brokerageFirms = new BrokerageFirms(5565, "O-Toro", 0.0, 1500.00, "Google");
@@ -63,7 +62,7 @@ public class Main {
 
         System.out.println(
                 insuranceCompany + "\n" + investmentBank + "\n" + savingsAndLoansService + "\n" + internetBank + "\n"
-                       + brokerageFirms + "\n" + commercialBank + "\n" + creditCard + "\n" + creditUnion + "\n");
+                        + brokerageFirms + "\n" + commercialBank + "\n" + creditCard + "\n" + creditUnion + "\n");
         // "//***************************************************************************\\"
         System.out.println(javier + "\n" + sancor + "\n" + leandro);
 
@@ -118,6 +117,11 @@ public class Main {
                         System.out.println("okay!, Please type how much do you need");
                         String amount = "";
                         amount = in.nextLine();
+                        if (((Customer) customer).getLevel() == Levels.LOW && Double.parseDouble(amount) > 1250){
+                            throw  new HighLoanForLevelException("Loan to high for you level");
+                        }else if (((Customer) customer).getLevel() == Levels.MEDIUM && Double.parseDouble(amount) > 2500){
+                            throw  new HighLoanForLevelException("Loan to high for you level");
+                        }
                         boolean isNumeric = amount.matches("[+-]?\\d*(\\.\\d+)?");
                         if (!isNumeric) {
                             throw new IsNotANumberException("What did you type?");
@@ -140,7 +144,6 @@ public class Main {
                             status = LoanStatus.IN_PROGRESS;
                             try {
                                 ((CommercialBank) commercialBank).setSavingsAccount(Double.parseDouble(amount));
-
                             } catch (NoHierarchyException e) {
                                 throw new NoHierarchyException("That class cannot be casted");
                             }
@@ -150,7 +153,7 @@ public class Main {
                             System.out.println("congrats you have $" + ((CommercialBank) commercialBank).getSavingsAccount()
                                     + " in your account");
                             Date now = new Date();
-                            Date giveBack = DateUtils.addMonths(now,3);
+                            Date giveBack = DateUtils.addMonths(now, 3);
                             System.out.println("You must give back $" + commercialBank.applyTax(Double.parseDouble(amount))
                                     + "in " + giveBack);
                         } else {
@@ -220,7 +223,7 @@ public class Main {
                                     + ((SavingsAndLoansService) savingsAndLoansService).getSavingsAccount()
                                     + " in your account");
                             Date now = new Date();
-                            Date giveBack = DateUtils.addMonths(now,3);
+                            Date giveBack = DateUtils.addMonths(now, 3);
                             System.out.println("You must give back $"
                                     + savingsAndLoansService.applyTax(Double.parseDouble(amount1)) + "in " + giveBack);
                         } else {

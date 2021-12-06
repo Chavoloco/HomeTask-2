@@ -50,7 +50,7 @@ public class CommercialBank extends CentralBank implements ICurrency {
 
     @Override
     public double exchangeDollar(double currency) {
-        return currency * VALUE_COMPARED_WITH_DOLAR;
+        return currency * VALUE_COMPARED_WITH_DOLLAR;
     }
 
     @Override
