@@ -1,16 +1,17 @@
 package com.solvd.financialIntitution.models.commercialBanks;
 
 import java.time.LocalDate;
+import java.util.Date;
 import java.util.Objects;
 
 public class CreditCard extends CommercialBank {
 
     private CommercialBank commercialBank;
     private long idCard;
-    private LocalDate expireDate;
+    private Date expireDate;
     private int securityCode;
 
-    public CreditCard(CommercialBank commercialBank, long idCard, LocalDate expireDate, int securityCode) {
+    public CreditCard(CommercialBank commercialBank, long idCard, Date expireDate, int securityCode) {
         this.commercialBank = commercialBank;
         this.idCard = idCard;
         this.expireDate = expireDate;
@@ -29,11 +30,11 @@ public class CreditCard extends CommercialBank {
         this.idCard = idCard;
     }
 
-    public LocalDate getExpireDate() {
+    public Date getExpireDate() {
         return expireDate;
     }
 
-    public void setExpireDate(LocalDate expireDate) {
+    public void setExpireDate(Date expireDate) {
         this.expireDate = expireDate;
     }
 

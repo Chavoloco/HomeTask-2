@@ -1,0 +1,100 @@
+Payments to Your Bank of America Loan Accounts From An External Account
+You may use the Service to make payments on your Bank of America mortgage, HELOC, charged off credit card accounts and other eligible loan accounts without a fee, on either a one-time or recurring basis, from your consumer asset account maintained at another financial institution that you have added to Transfers. For payments from your linked Bank of America accounts, see Section 2.A above.
+
+Payments to your mortgage or HELOC loan accounts from your consumer asset account maintained at another financial institution can be for any amount up to $99,999.99 with escrow payments limited to $5,000.00.
+
+Payments to your charged off credit card accounts from your consumer asset account maintained at another financial institution can be for any amount up to $249,999.99.
+
+You certify that any account you add to Transfers is an account from which you are authorized to make payments, and any payment you make using Transfers will debit an account that you are legally authorized to use. When you add an account maintained at another financial institution, you do not change the agreements you have with that financial institution for that account. Please review those agreements for any applicable fees, limitations on the number of transactions you can make, and for other restrictions that might limit your use of the account with Transfers.
+
+Payments to your loan accounts initiated before 11:59 p.m. ET will be applied on the same day. Payments entered after this cut-off will be scheduled and processed on the next calendar day. Updates to account balances, funds availability, and transaction posting may take up to 2 business days.
+
+If the financial institution upon which your payment is drawn rejects, refuses, or returns the payment, the payment to your Bank of America loan account will be reversed and you may incur late payment or other fees. The institution holding your deposit account may impose a returned item or other fee.
+
+Future scheduled and recurring payments to your loan accounts from your account at another financial institution can be canceled prior to midnight ET on the calendar day prior to the date the transfer is scheduled to be made. A one-time immediate transfer cannot be canceled after it has been submitted.
+
+The best way to cancel a future scheduled or recurring transfer is to follow the instructions on our website. The cancel feature is found in the Transfer Activity. You may also request to cancel a future scheduled or recurring transfer by calling us at 800.432.1000 for consumer accounts and 866.758.5972 for small business accounts. If you are calling from outside of the continental U.S., call us collect at 925.681.7600.
+Bill Payment Services
+This section is not applicable to small business customers participating in the Payments and Invoicing Service described in section 8.0 of the Business Services Addendum, which is a part of this Agreement.  You may only be eligible to enroll in one service.  Bank of America makes no representations or warranties as to whether a bill payment program that you are eligible to enroll in is appropriate for a particular business.  You are solely responsible for determining whether a service that is made available to you is suitable for your business, considering various factors including, but not limited to, payment processing timeframes, timing for delivery of payments, fees, and limits included in the different plans.
+
+A. Bill Pay for Checking, Money Market and Home Equity Line of Credit Accounts
+Bank of America customers may use Bill Pay to make payments to companies or individuals (“Payees”) in the following manner:
+
+Payments can be scheduled from linked checking, money market savings, and HELOC accounts during the draw period. Note that you may not link HELOC accounts opened in Texas.
+
+Payments can be scheduled from a checking, money market savings or other consumer asset account maintained at another financial institution that you have added to Bill Pay. You certify that any account you add to Bill Pay is an account from which you are authorized to make payments, and any payment you make using Bill Pay will debit an account that you are legally authorized to use. When you add an account maintained at another financial institution, you do not change the agreements you have with that financial institution for that account. Please review those agreements for any applicable fees, limitations on the number of transactions you can make, and for other restrictions that might limit your use of the account with Bill Pay.
+
+Payments can be entered as a one-time transaction up to a year in advance, recurring transactions or as payments that are automatically scheduled upon the receipt of an electronic bill (e-Bill).
+
+Future scheduled or recurring payments that fall on a weekend or a non-business day will be processed on the prior business day.
+
+You authorize us to make payments in the manner we select from the following methods:
+Electronic transmission. Most payments are made by electronic transmission.
+Corporate check – This is a check drawn on our account or the account of our vendor. If a Payee on a corporate check fails to negotiate the check within ninety (90) days, we will stop payment on the check and re-credit your account for the amount of the payment. If a corporate check is returned to you prior to the end of the ninety (90) day period, please inform us immediately so that we can stop payment on the check and re-credit your account.
+Personal check – This is a check drawn on your account when it is presented for payment.
+
+All payments under Bill Pay that are sent care of APO/FPO or similar addresses will be sent by corporate or personal check. Because all such payments will be made by check, they will not be Remittance Transfers (as defined in section 5.F. of this Agreement).
+
+Any obligations that you wish to pay through Bill Pay must be payable in U.S. dollars to a Payee located in the United States. We reserve the right to restrict categories of Payees to whom payments may be made using the Service. We recommend that you not use the Service to make:
+Tax payments
+Court-ordered payments
+Payments to settle securities transactions
+
+Scheduling Bill Payments
+The scheduled delivery date is the date you enter for the payment to be delivered to the Payee. For payments made by electronic transmission or corporate check, the payment amount will be debited from the account that you designate on the scheduled delivery date. For payments made by personal check, the account you designate will be debited when the check is presented to us for payment which may occur before, on or after the scheduled delivery date.
+Payments (other than payments to a Bank of America Payee) initiated before 5:00 p.m. ET on a business day will be scheduled and begin processing on the same business day. Payments that are entered after this cut-off time or on a day that is a non-business day will be scheduled and processed the next bank business day.
+For payments to a Bank of America Payee, such as a vehicle loan, HELOC or mortgage, Bank of America will process and credit the payment to the account effective the same business day, provided the payment is scheduled prior to the 5:00 p.m. ET cut-off. It may take up to 2 business days for these updates to be reflected in your account balances, funds availability, and transaction posting.
+For payments to Bank of America credit card and business line of credit accounts, Bank of America will process and credit the payment to the account effective the same day, provided the payment is scheduled prior to the 11:59 p.m. ET cut-off. It may take up to 2 business days for these updates to be reflected in your account balances, funds availability, and transaction posting.
+
+Bill Discovery Service. At your option, we may offer you the opportunity to add Payees from our service provider’s network or, with your consent, to access your credit report to help you identify Payees which you would like to add to this service.  Information from these sources may make it easier for you to make payments or add relevant e-bills to your Service.
+When you attempt to schedule a payment, we will inform you of the earliest available delivery date. To assure timely payment and obtain the full benefit of the Online Banking Guarantee described below, you must schedule payments, and your account must be in good standing and have sufficient available funds in the designated deposit account to cover the payment, at least five (5) bank business days before the payment due date, NOT the date after which late payment fees may be assessed.
+
+If an account does not have sufficient available funds on the scheduled date, we may elect not to initiate one or more of the transfers. If we do elect to initiate the transfer, which may involve one or more attempts on subsequent business days, it may cause an overdraft in your account in which case you shall be fully responsible for the overdraft and any Overdraft Item Fees, as set forth in your Deposit Agreement, as well as all late fees, interest charges or other action taken by the Payee. If an account has sufficient funds on the scheduled date and we initiate the transfer but the account does not have sufficient funds when the payment posts to your account, you may incur an insufficient funds fee, as set forth in your Deposit Agreement, as well as all late fees, interest charges or other action taken by the Payee.
+
+Under our Online Banking Guarantee, if we fail to process a payment in accordance with your properly completed instructions, we will reimburse you for any late payment fees. As indicated above, some payments may be made by a personal check. Since we can't predict the exact date that a personal check will be presented to us for payment, please make sure you have sufficient funds in your account beginning a few days before your scheduled delivery date and keep such funds available until the payment is deducted from your account.
+
+Bill Pay payments sent via corporate or personal check with different Payee names may be combined in one envelope if those payments have the same mailing address, and your intended Payee has not registered their full/unique mailing address with the USPS, including their secondary address designation, e.g., Suite, Room, Floor, Dept., Building, or Unit. If we need to, we’ll change or reformat your Payee account number to match the account number or format required by your Payee for electronic payment processing and eBill activation.
+
+B. Bill Pay for Credit Card, Business Line of Credit or Vehicle Loan (automotive, recreational vehicle, boat or aircraft) Only Customers
+Bank of America credit card, business line of credit or vehicle loan account only customers may use Bill Pay in the following manner:
+
+Payments to your Bank of America credit card up to $249,999.99, your business line of credit or vehicle loan account can be scheduled from a checking, money market savings or other consumer asset account maintained at another financial institution that you have added to Bill Pay.
+
+Payments can be entered as a one-time transaction up to a year in advance, or as payments that are automatically scheduled upon the receipt of an e-Bill.
+
+Payments to your credit card or business line of credit account initiated before 11:59 p.m. ET will be applied on the same day. Payments entered after this cut-off will be scheduled and processed on the next calendar day.
+
+Payments to your vehicle loan account initiated before 5 p.m. ET on a business day will be applied on the same day. Payments entered after this cut-off will be scheduled and processed on the next business day.
+
+If the financial institution upon which your payment is drawn, including Bank of America, rejects, refuses, or returns the payment, the payment to your Bank of America credit card, business line of credit or vehicle loan will be reversed and you may incur late payment or other fees. The institution holding your deposit account, including Bank of America, may impose a returned item or other fee.
+C. E-Bills
+E-Bills is a feature of the Bill Pay Service that enables you to receive bills electronically from participating Payees
+
+Approval of e-Bills
+Participating Payees establish their own criteria for reviewing requests to receive e-Bills and have sole discretion to accept or decline your request.
+Accessing e-Bills from a Third Party
+In some cases we obtain the e-Bill from the web site of the Payee. To do so, we will ask you for information needed for this purpose, such as any required password. When you provide this information, you authorize us to access the third party web site to retrieve the account information on your behalf, and you appoint us your agent for this limited purpose.
+Timely Delivery of e-Bills.
+We take no responsibility if a Payee does not provide the necessary data to forward an e-Bill in a timely manner. If you do not receive an e-Bill, it is your responsibility to contact the Payee directly. We are not responsible for any late charges or other adverse consequences. Any questions regarding your e-Bill details should be directed to your Payee.
+
+Stop e-Bills
+You or we can cancel the e-Bill service, or a particular e-Bill at any time. If you request that a particular e-Bill be discontinued, we require seven (7) business days for the Payee to receive and process the request.  If an e-Bill from a Bank of America Payee is canceled, any e-Bills previously delivered but not paid will be removed from your list of payable e-Bills.
+Privacy
+When you request e-Bills from a participating Payee you may be asked to provide certain information that will be forwarded to the Payee to complete your enrollment. When you provide this information, you authorize us to share it with the Payee.
+Introductory e-Bill Opportunity
+You understand and agree that selected Payees may provide e-Bills to you through Bill Pay for up to three months in order to introduce you to the convenience of Bill Pay.  We will notify you in advance of such introductory opportunities.  Bank of America does not have access to and does not store detailed billing information contained in the e-Bill. Only you will have access to the detailed bill information. If at any time you choose not to participate in this introductory e-Bill opportunity, you have the following options:
+
+You can discontinue a specific e-Bill by signing into Bill Pay and selecting “cancel the e-Bill trial.”
+
+To be removed from all future e-Bill trial enrollments, please e-mail customer care at optoutebill@customercenter.net from the email address that you use for the Service.
+
+If you wish to continue to receive the e-Bills after the introductory period, please follow the instructions at the e-Bills page of Bill Pay.
+D. Limits
+Bill payments from your Bank of America account can be for any amount up to $99,999.99. Please note, however, that some Payees may place limits on the amount they will accept via electronic transmission. When the limit is exceeded, the payment will be remitted by check.
+
+E. Canceling Bill Payments
+In order to cancel a bill payment (including a payment you scheduled from an account maintained at another financial institution), follow the directions provided in Bill Pay. The cancel feature is found in the Payment History or Recurring Payments sections. You may also request to cancel a future scheduled or recurring transfer by calling us at 800.432.1000 for consumer accounts and 866.758.5972 for small business accounts. If you are calling from outside of the continental U.S., call us collect at 925.681.7600.
+Future-dated or recurring payments can be canceled prior to 5 p.m. ET on the third bank business day prior to the scheduled delivery date. Once a payment has begun processing, it cannot be canceled.
+If a check has been issued for your bill payment, any stop payment provisions that apply to checks in the agreement governing your bill pay funding account will also apply to Bill Pay.
+F. Fees
+There are no service fees for use of the Bill Pay Service.

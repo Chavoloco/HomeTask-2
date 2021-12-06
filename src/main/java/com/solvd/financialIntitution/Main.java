@@ -15,10 +15,15 @@ import com.solvd.financialIntitution.models.customers.*;
 import com.solvd.financialIntitution.models.employees.Employee;
 import com.solvd.financialIntitution.models.insuranceCompanies.InsuranceCompany;
 import com.solvd.financialIntitution.models.investmentBanks.*;
+import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang3.time.DateUtils;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 
+import java.io.File;
+import java.io.IOException;
+import java.text.ParseException;
 import java.time.LocalDate;
 import java.time.Month;
 import java.util.*;
@@ -27,7 +32,7 @@ public class Main {
     public static MyLinkedList myLinkedList;
     public static final Logger log = LogManager.getLogger(Main.class);
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException, ParseException {
 
         myLinkedList = new MyLinkedList();
 
@@ -38,7 +43,9 @@ public class Main {
         System.out.println("linked list: " + myLinkedList);
 
         ArrayList<String> objects = new ArrayList<String>();
-        LocalDate expireDate = LocalDate.of(2025, Month.MAY, 23);
+
+        Date expireDate = DateUtils.parseDate("2030/06/13", "yyyy/MM/dd");
+
 
         CentralBank insuranceCompany = new InsuranceCompany(458778, "Security insurance", 45000, 5400.00, 120000.00);
         CentralBank investmentBank = new InvestmentService(878765, "Brothers investment", 12000, 00, 00);
@@ -56,12 +63,12 @@ public class Main {
 
         System.out.println(
                 insuranceCompany + "\n" + investmentBank + "\n" + savingsAndLoansService + "\n" + internetBank + "\n"
-                        + brokerageFirms + "\n" + commercialBank + "\n" + creditCard + "\n" + creditUnion + "\n");
+                       + brokerageFirms + "\n" + commercialBank + "\n" + creditCard + "\n" + creditUnion + "\n");
         // "//***************************************************************************\\"
         System.out.println(javier + "\n" + sancor + "\n" + leandro);
 
         BankDAO<CommercialBank> commercialBankGeneric = new BankDAO<>();
-        commercialBankGeneric.editName( (CommercialBank) commercialBank, "Nation Bank");
+        commercialBankGeneric.editName((CommercialBank) commercialBank, "Nation Bank");
         commercialBankGeneric.getName((CommercialBank) commercialBank);
         commercialBankGeneric.getIdAccount((CommercialBank) commercialBank);
 
@@ -70,7 +77,7 @@ public class Main {
         customerPersonGeneric.getName((Customer) leandro);
 
         UnionDAO<CommercialBank, Customer> unionGeneric = new UnionDAO<>();
-        System.out.println(unionGeneric.makeUnion((CommercialBank) commercialBank,(Customer) leandro));
+        System.out.println(unionGeneric.makeUnion((CommercialBank) commercialBank, (Customer) leandro));
 
         try {
             askForALoan(commercialBank, savingsAndLoansService, javier, leandro);
@@ -88,7 +95,7 @@ public class Main {
     }
 
 
-    public static void askForALoan(CentralBank commercialBank, CentralBank savingsAndLoansService, Person employee, Person customer) {
+    public static void askForALoan(CentralBank commercialBank, CentralBank savingsAndLoansService, Person employee, Person customer) throws IOException {
         Days day = Days.MONDAY;
         if (day.equals(Days.SATURDAY) || day.equals(Days.SUNDAY)) {
             System.out.println("operations are closed");
@@ -125,23 +132,30 @@ public class Main {
                         System.out.println(customer.talk());
                         System.out.println(employee.talk());
                         System.out.println(commercialBank.talk());
+                        System.out.println("Before continue please read the terms and conditions");
+                        readDocs();
                         LoanStatus status = LoanStatus.TODO;
                         System.out.println("status: " + status.status());
                         if (commercialBank.giveLoan(Double.parseDouble(amount))) {
+                            status = LoanStatus.IN_PROGRESS;
                             try {
                                 ((CommercialBank) commercialBank).setSavingsAccount(Double.parseDouble(amount));
+
                             } catch (NoHierarchyException e) {
                                 throw new NoHierarchyException("That class cannot be casted");
                             }
+
                             commercialBank.validate();
+                            status = LoanStatus.DONE;
                             System.out.println("congrats you have $" + ((CommercialBank) commercialBank).getSavingsAccount()
                                     + " in your account");
-                            LocalDate now = LocalDate.now();
-                            LocalDate giveBack = now.plusMonths(3);
+                            Date now = new Date();
+                            Date giveBack = DateUtils.addMonths(now,3);
                             System.out.println("You must give back $" + commercialBank.applyTax(Double.parseDouble(amount))
                                     + "in " + giveBack);
                         } else {
                             commercialBank.deny();
+                            status = LoanStatus.CANCELED;
                             System.out.println("Sorry we couldn't give you a loan");
                             System.out.println("do you want to put some objects in your security box?");
                             String answer = in.nextLine();
@@ -154,13 +168,17 @@ public class Main {
                                     String object = "";
                                     switch (op1) {
                                         case 1:
+                                            LoanStatus boxStatus = LoanStatus.TODO;
                                             System.out.println("What do you want to put?");
                                             object = in.nextLine();
+                                            boxStatus = LoanStatus.IN_PROGRESS;
                                             if (object.equals("gun") || object.equals("drug")
                                                     || object.equals("another security box")) {
+                                                boxStatus = LoanStatus.CANCELED;
                                                 throw new IllegalObjectsInSecurityBox("That object is not allowed");
                                             } else {
                                                 ((CommercialBank) commercialBank).setSecurityBox(object);
+                                                boxStatus = LoanStatus.DONE;
                                                 System.out.println(
                                                         "Thanks you have " + ((CommercialBank) commercialBank).getSecurityBox()
                                                                 + " in your security box");
@@ -201,8 +219,8 @@ public class Main {
                             System.out.println("congrats you have $"
                                     + ((SavingsAndLoansService) savingsAndLoansService).getSavingsAccount()
                                     + " in your account");
-                            LocalDate now = LocalDate.now();
-                            LocalDate giveBack = now.plusMonths(3);
+                            Date now = new Date();
+                            Date giveBack = DateUtils.addMonths(now,3);
                             System.out.println("You must give back $"
                                     + savingsAndLoansService.applyTax(Double.parseDouble(amount1)) + "in " + giveBack);
                         } else {
@@ -221,6 +239,41 @@ public class Main {
 
             } while (Integer.parseInt(op) != 0);
         }
+    }
+
+    public static boolean readDocs() throws IOException {
+        File terms = new File("E:\\Qa Automation Course Solvd\\HomeTask 2\\src\\main\\java\\com\\solvd\\financialIntitution\\docs\\terms-and-conditions.txt");
+
+        System.out.println(terms);
+
+        String lines = String.valueOf(FileUtils.readLines(terms));
+
+
+        StringUtils.countMatches(lines, "loan");
+        StringUtils.countMatches(lines, "fees");
+        StringUtils.countMatches(lines, "cancel");
+
+        File newFile = new File("E:\\Qa Automation Course Solvd\\HomeTask 2\\src\\main\\java\\com\\solvd\\financialIntitution\\docs\\are-you-sure.txt");
+        FileUtils.touch(newFile);
+
+        String writeFile = "Be careful of what you sing \n" +
+                "there are many dangerous words in these terms \n" +
+                "for instance: \n" +
+                StringUtils.join("loan:   ", StringUtils.countMatches(lines, "loan")) + "\n" +
+                StringUtils.join("fees:   ", StringUtils.countMatches(lines, "fees")) + "\n" +
+                StringUtils.join("cancel:   ", StringUtils.countMatches(lines, "cancel"));
+
+        FileUtils.writeStringToFile(newFile, writeFile);
+
+        System.out.println("Are you sure that you want to sign?");
+        System.out.println(newFile);
+
+        Scanner sure = new Scanner(System.in);
+        sure.nextLine();
+        if (sure.equals("yes")) return true;
+        else return false;
+
+
     }
 
 }

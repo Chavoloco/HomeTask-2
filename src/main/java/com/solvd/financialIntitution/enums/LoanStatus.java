@@ -3,7 +3,8 @@ package com.solvd.financialIntitution.enums;
 public enum LoanStatus {
     TODO("to do"),
     IN_PROGRESS("in progress"),
-    DONE("done");
+    DONE("done"),
+    CANCELED("canceled");
 
     private String status;
 
