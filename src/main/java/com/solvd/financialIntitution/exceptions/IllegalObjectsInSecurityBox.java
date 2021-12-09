@@ -1,6 +1,8 @@
 package com.solvd.financialIntitution.exceptions;
 
-public class IllegalObjectsInSecurityBox extends RuntimeException {
+import java.io.IOException;
+
+public class IllegalObjectsInSecurityBox extends IOException {
     public IllegalObjectsInSecurityBox() {
     }
 

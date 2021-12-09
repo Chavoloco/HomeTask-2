@@ -1,6 +1,7 @@
 package com.solvd.financialIntitution.models.interfaces;
 
+@FunctionalInterface
 public interface IDeny {
 
-    void deny();
+    String deny();
 }

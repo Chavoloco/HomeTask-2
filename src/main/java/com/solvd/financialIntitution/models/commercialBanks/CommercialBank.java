@@ -6,7 +6,7 @@ import com.solvd.financialIntitution.models.interfaces.ICurrency;
 import java.util.List;
 import java.util.Objects;
 
-public class CommercialBank extends CentralBank implements ICurrency {
+public class CommercialBank extends CentralBank  {
 
     private double savingsAccount;
     private int idSecurityBox;
@@ -48,14 +48,9 @@ public class CommercialBank extends CentralBank implements ICurrency {
         this.securityBox.add(object);
     }
 
-    @Override
-    public double exchangeDollar(double currency) {
-        return currency * VALUE_COMPARED_WITH_DOLLAR;
-    }
 
-    @Override
-    public double exchangeEuro(double currency) {
-        return currency * VALUE_COMPARED_WITH_EURO;
+    public void printExchange(ICurrency currency){
+        System.out.println("Congrats you earned " + currency.exchange() + " dollars");
     }
 
     @Override

@@ -10,7 +10,7 @@ import java.util.Objects;
 
 
 
-public abstract class CentralBank implements ITaxes, ITalk, IValidate, IDeny {
+public abstract class CentralBank implements ITaxes, ITalk {
 
     private int idAccount;
     private String name;
@@ -91,14 +91,14 @@ public abstract class CentralBank implements ITaxes, ITalk, IValidate, IDeny {
         return null;
     }
 
-    @Override
-    public void validate() {
-        System.out.println("Your loan has been approved");
+
+    public void printValidate(IValidate validate) {
+        System.out.println(validate.validate());
     }
 
-    @Override
-    public void deny() {
-        System.out.println("The loan has not been approved");
+
+    public void printDeny(IDeny deny) {
+        System.out.println(deny.deny());
     }
 
     @Override

@@ -2,22 +2,24 @@ package com.solvd.financialIntitution.models.investmentBanks;
 
 
 import com.solvd.financialIntitution.models.CentralBank;
+import com.solvd.financialIntitution.models.interfaces.ICurrency;
 
+import java.util.HashMap;
 import java.util.Objects;
 
 public class BrokerageFirms extends CentralBank {
     private double investmentAccount;
-    private String investments;
+    private HashMap<String, Double> investments;
 
 
     public BrokerageFirms() {
         super();
     }
 
-    public BrokerageFirms(int idAccount, String name, double maxCredit, double investmentAccount, String investments) {
+    public BrokerageFirms(int idAccount, String name, double maxCredit, double investmentAccount) {
         super(idAccount, name, maxCredit);
         this.investmentAccount = investmentAccount;
-        this.investments = investments;
+        this.investments = new HashMap<>();
     }
 
     public double getInvestmentAccount() {
@@ -28,13 +30,14 @@ public class BrokerageFirms extends CentralBank {
         this.investmentAccount = investmentAccount;
     }
 
-    public String getInvestments() {
+    public HashMap<String, Double> getInvestments() {
         return investments;
     }
 
-    public void setInvestments(String investments) {
-        this.investments = investments;
+    public void setInvestments(String enterprise, Double price) {
+        this.investments.put(enterprise, price);
     }
+
 
     @Override
     public double applyTax(double loan) {
@@ -44,6 +47,10 @@ public class BrokerageFirms extends CentralBank {
     @Override
     public String talk() {
         return "We are evaluating the situation";
+    }
+
+    public void printExchange(ICurrency currency){
+        System.out.println("Congrats you earned $" + currency.exchange());
     }
 
     @Override

@@ -1,6 +1,7 @@
 package com.solvd.financialIntitution.models.commercialBanks;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.Objects;
 
@@ -10,12 +11,37 @@ public class CreditCard extends CommercialBank {
     private long idCard;
     private Date expireDate;
     private int securityCode;
+    private boolean isEmpty;
+    private ArrayList<Double> purchases;
 
     public CreditCard(CommercialBank commercialBank, long idCard, Date expireDate, int securityCode) {
         this.commercialBank = commercialBank;
         this.idCard = idCard;
         this.expireDate = expireDate;
         this.securityCode = securityCode;
+        this.purchases = new ArrayList<>();
+        this.isEmpty = true;
+    }
+
+    public void getPurchases() {
+        if (isEmpty) {
+            System.out.println("There are no purchases");
+        } else {
+            System.out.println(purchases);
+        }
+    }
+
+    public void setPurchases(Double purchases) {
+        this.purchases.add(purchases);
+        this.isEmpty = false;
+    }
+
+    public void highestPurchases(){
+        this.purchases.stream().filter((p)-> p > 350).forEach(p -> System.out.println(p));
+    }
+
+    public void lowestPurchases(){
+        this.purchases.stream().filter((p)-> p < 350).forEach(p -> System.out.println(p));
     }
 
     public CreditCard() {
