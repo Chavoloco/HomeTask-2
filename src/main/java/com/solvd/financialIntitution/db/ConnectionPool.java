@@ -2,9 +2,8 @@ package com.solvd.financialIntitution.db;
 
 import com.solvd.financialIntitution.user.User;
 
-import java.util.concurrent.CompletableFuture;
 
-public class ConnectionPool extends CompletableFuture<User> {
+public class ConnectionPool {
     private static ConnectionPool connectionPool;
     private final String DB = "database";
 
@@ -19,10 +18,18 @@ public class ConnectionPool extends CompletableFuture<User> {
         return connectionPool;
     }
 
-    private String connectionDone(){
+    private static String connectionDone(){
         return "Connection done!";
     }
-    private String connectionCancelled(){
+    private static String connectionCancelled(){
         return "Connection cancelled!";
+    }
+
+    public static String connect(User user){
+            if (user.getUserName().equals("admin") && user.getPassword().equals("admin")){
+                return connectionDone();
+            }else {
+                return connectionCancelled();
+            }
     }
 }
