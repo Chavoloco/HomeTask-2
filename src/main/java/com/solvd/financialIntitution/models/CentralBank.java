@@ -1,16 +1,21 @@
 package com.solvd.financialIntitution.models;
 
+import com.solvd.financialIntitution.Main;
 import com.solvd.financialIntitution.enums.Levels;
 import com.solvd.financialIntitution.models.interfaces.IDeny;
 import com.solvd.financialIntitution.models.interfaces.ITalk;
 import com.solvd.financialIntitution.models.interfaces.ITaxes;
 import com.solvd.financialIntitution.models.interfaces.IValidate;
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
 
 import java.util.Objects;
 
 
 
 public abstract class CentralBank implements ITaxes, ITalk {
+
+    public static final Logger log = LogManager.getLogger(CentralBank.class);
 
     private int idAccount;
     private String name;
@@ -93,12 +98,12 @@ public abstract class CentralBank implements ITaxes, ITalk {
 
 
     public void printValidate(IValidate validate) {
-        System.out.println(validate.validate());
+        log.info(validate.validate());
     }
 
 
     public void printDeny(IDeny deny) {
-        System.out.println(deny.deny());
+        log.info(deny.deny());
     }
 
     @Override

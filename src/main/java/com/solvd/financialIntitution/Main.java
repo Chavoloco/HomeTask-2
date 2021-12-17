@@ -1,7 +1,6 @@
 package com.solvd.financialIntitution;
 
 import com.solvd.financialIntitution.collections.MyLinkedList;
-import com.solvd.financialIntitution.db.ConnectionPool;
 import com.solvd.financialIntitution.enums.Days;
 import com.solvd.financialIntitution.enums.LoanStatus;
 import com.solvd.financialIntitution.exceptions.*;
@@ -28,9 +27,7 @@ import java.io.File;
 import java.io.IOException;
 import java.text.ParseException;
 import java.util.*;
-import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
-import java.util.concurrent.Future;
 
 public class Main {
     private static MyLinkedList myLinkedList;
@@ -43,8 +40,6 @@ public class Main {
         User user1 = new User("admin", "admin");
         User user2 = new User("admin", "admin");
         User user3 = new User("admin", "admin");
-
-
 
         myLinkedList.add("1");
         myLinkedList.add("4");

@@ -1,12 +1,17 @@
 package com.solvd.financialIntitution.models.commercialBanks;
 
+import com.solvd.financialIntitution.Main;
 import com.solvd.financialIntitution.models.CentralBank;
 import com.solvd.financialIntitution.models.interfaces.ICurrency;
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
 
 import java.util.List;
 import java.util.Objects;
 
 public class CommercialBank extends CentralBank  {
+
+    //private static final Logger log = LogManager.getLogger(Main.class);
 
     private double savingsAccount;
     private int idSecurityBox;
@@ -50,7 +55,7 @@ public class CommercialBank extends CentralBank  {
 
 
     public void printExchange(ICurrency currency){
-        System.out.println("Congrats you earned " + currency.exchange() + " dollars");
+        log.info("Congrats you earned " + currency.exchange() + " dollars");
     }
 
     @Override

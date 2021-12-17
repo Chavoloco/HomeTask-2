@@ -1,5 +1,9 @@
 package com.solvd.financialIntitution.models.commercialBanks;
 
+import com.solvd.financialIntitution.Main;
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
+
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
@@ -25,9 +29,9 @@ public class CreditCard extends CommercialBank {
 
     public void getPurchases() {
         if (isEmpty) {
-            System.out.println("There are no purchases");
+            log.info("There are no purchases");
         } else {
-            System.out.println(purchases);
+            log.info(purchases);
         }
     }
 
@@ -37,11 +41,11 @@ public class CreditCard extends CommercialBank {
     }
 
     public void highestPurchases(){
-        this.purchases.stream().filter((p)-> p > 350).forEach(p -> System.out.println(p));
+        this.purchases.stream().filter((p)-> p > 350).forEach(p -> log.info(p));
     }
 
     public void lowestPurchases(){
-        this.purchases.stream().filter((p)-> p < 350).forEach(p -> System.out.println(p));
+        this.purchases.stream().filter((p)-> p < 350).forEach(p -> log.info(p));
     }
 
     public CreditCard() {
