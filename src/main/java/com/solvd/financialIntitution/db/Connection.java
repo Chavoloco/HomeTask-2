@@ -2,10 +2,8 @@ package com.solvd.financialIntitution.db;
 
 public class Connection extends Thread {
 
-    private  Boolean isOpen;
 
     public Connection() {
-        this.isOpen = true;
     }
 
     @Override
@@ -16,13 +14,6 @@ public class Connection extends Thread {
         System.out.println(close());
     }
 
-    public Boolean getOpen() {
-        return isOpen;
-    }
-
-    public void setOpen(Boolean open) {
-        isOpen = open;
-    }
 
     private String pingDB() {
         return "ping DB";

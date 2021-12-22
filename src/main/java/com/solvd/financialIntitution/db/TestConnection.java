@@ -1,20 +1,15 @@
 package com.solvd.financialIntitution.db;
 
+import java.sql.SQLException;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.Executor;
 import java.util.concurrent.Future;
 
 public class TestConnection {
-    public static void main(String[] args) throws InterruptedException {
-        ConnectionPool pool = ConnectionPool.getInstance();
-        pool.connect();
-        pool.connect();
-        pool.connect();
-        pool.connect();
-        pool.connect();
-        pool.connect();
-        pool.connect();
+    public static void main(String[] args) {
 
+
+        Connection pool = ConnectionPool.getInstance().getConnection();
 
 
         //Connection connection1 = pool.connect();

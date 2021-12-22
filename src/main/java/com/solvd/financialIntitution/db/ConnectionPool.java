@@ -10,9 +10,11 @@ import java.util.*;
 
 public class ConnectionPool {
     private static final Logger log = LogManager.getLogger(Main.class);
+    
 
     private static ConnectionPool connectionPool;
     private final String DB = "database";
+    private static int contAmount = 0;
 
 
     private static final int MAX_CONNECTIONS = 5;
@@ -30,22 +32,25 @@ public class ConnectionPool {
         return connectionPool;
     }
 
-    public synchronized Connection connect() throws InterruptedException {
-        Connection connection = new Connection();
-        if (connections.size() >= MAX_CONNECTIONS) {
-            log.error("Connection pool is full");
-            return connection;
+    public synchronized Connection getConnection() {
+        if (connections.isEmpty()) {
+            return connections.stream().findFirst().get();
+        } else if (contAmount == MAX_CONNECTIONS) {
+            for (int i = 0; i < 10; i++) {
+                try {
+                    Thread.sleep(1000);
+                } catch (InterruptedException e) {
+                    log.error("");
+                }
+                if (!connections.isEmpty()) {
+                    return connections.stream().findFirst().get();
+                }
+            }
+            throw new RuntimeException("");
         } else {
-            connection.setName("connection" + connections.size());
-            log.info("connection runs " + connection.getName());
-            connections.add(connection);
-            connection.run();
-            connection.setOpen(false);
-            return connection;
+            contAmount++;
+            return new Connection();
         }
     }
 
-    public List<Connection> getConnections() {
-        return connections;
-    }
 }
