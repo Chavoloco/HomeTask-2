@@ -1,16 +1,19 @@
 package com.solvd.financialIntitution.db;
 
-import java.util.concurrent.Executor;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Future;
+import java.util.concurrent.CompletableFuture;
 
 public class TestConnection {
     public static void main(String[] args) {
-        ConnectionPool connectionPool = ConnectionPool.getInstance();
+        Connection connectionPool = ConnectionPool.getInstance().getConnection();
 
         Connection conn1 = new Connection();
 
+        CompletableFuture<Void> cf = CompletableFuture.runAsync(() -> ConnectionPool.getInstance()
+                .returnConnection(conn1)).thenRun(() -> conn1.run());
 
+        while (cf.isDone()){
+            
+        }
 
 
     }

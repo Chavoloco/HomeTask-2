@@ -9,25 +9,9 @@ public class Connection implements Runnable{
     @Override
     public void run() {
         System.out.println(pingDB());
-        try {
-            Thread.sleep(500);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
         System.out.println(auth());
-        try {
-            Thread.sleep(500);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
         System.out.println(executeQuery());
-        try {
-            Thread.sleep(500);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
         System.out.println(close());
-
     }
 
     private String pingDB() {
