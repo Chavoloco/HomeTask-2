@@ -1,6 +1,6 @@
 package com.solvd.financialIntitution.db;
 
-public class Connection extends Thread {
+public class Connection implements Runnable{
 
 
     public Connection() {
@@ -9,11 +9,26 @@ public class Connection extends Thread {
     @Override
     public void run() {
         System.out.println(pingDB());
+        try {
+            Thread.sleep(500);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         System.out.println(auth());
+        try {
+            Thread.sleep(500);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         System.out.println(executeQuery());
+        try {
+            Thread.sleep(500);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         System.out.println(close());
-    }
 
+    }
 
     private String pingDB() {
         return "ping DB";
@@ -30,4 +45,5 @@ public class Connection extends Thread {
     private String close() {
         return "close";
     }
+
 }

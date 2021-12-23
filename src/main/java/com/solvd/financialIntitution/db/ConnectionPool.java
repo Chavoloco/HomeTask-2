@@ -10,12 +10,10 @@ import java.util.*;
 
 public class ConnectionPool {
     private static final Logger log = LogManager.getLogger(Main.class);
-    
 
     private static ConnectionPool connectionPool;
     private final String DB = "database";
     private static int contAmount = 0;
-
 
     private static final int MAX_CONNECTIONS = 5;
     private static List<Connection> connections = new ArrayList<>(MAX_CONNECTIONS);
@@ -39,11 +37,11 @@ public class ConnectionPool {
             for (int i = 0; i < 10; i++) {
                 try {
                     Thread.sleep(1000);
+                    if (!connections.isEmpty()) {
+                        return connections.stream().findFirst().get();
+                    }
                 } catch (InterruptedException e) {
-                    log.error("");
-                }
-                if (!connections.isEmpty()) {
-                    return connections.stream().findFirst().get();
+                    log.error("Thread error", e);
                 }
             }
             throw new RuntimeException("");
@@ -53,4 +51,8 @@ public class ConnectionPool {
         }
     }
 
+    public synchronized void returnConnection(Connection connection) {
+        connections.add(connection);
+    }
 }
+
