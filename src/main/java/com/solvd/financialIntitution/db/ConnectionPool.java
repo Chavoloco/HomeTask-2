@@ -31,7 +31,7 @@ public class ConnectionPool {
     }
 
     public synchronized Connection getConnection() {
-        if (connections.isEmpty()) {
+        if (!connections.isEmpty()) {
             return connections.stream().findFirst().get();
         } else if (contAmount == MAX_CONNECTIONS) {
             for (int i = 0; i < 10; i++) {
