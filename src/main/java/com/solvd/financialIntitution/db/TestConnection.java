@@ -4,16 +4,14 @@ import java.util.concurrent.CompletableFuture;
 
 public class TestConnection {
     public static void main(String[] args) {
-        Connection connectionPool = ConnectionPool.getInstance().getConnection();
+        ConnectionPool connectionPool = ConnectionPool.getInstance();
 
-        Connection conn1 = new Connection();
+        Connection conn1 = connectionPool.getConnection();
 
-        CompletableFuture<Void> cf = CompletableFuture.runAsync(() -> ConnectionPool.getInstance()
-                .returnConnection(conn1)).thenRun(() -> conn1.run());
+        CompletableFuture<Void> uCompletableFuture = CompletableFuture
+                .supplyAsync(() -> ConnectionPool.getInstance().getConnection()).thenAccept(c->c.run());
 
-        while (cf.isDone()){
-            
-        }
+
 
 
     }
